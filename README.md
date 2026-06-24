@@ -1,5 +1,7 @@
 This is my virtual pet game for StarDance. your pet is a race car called Thunder McKing — number 7, born to race. The original character concept was mine, however I did use AI to create the characters.
 
+CLICK HERE TO PLAY THE DEMO NOW: https://shadxen-fxcodes.github.io/Virtual-Pet/pet_racer.html
+
 How to play:
 
 When you load in, Thunder McKing pulls up in the garage ready to go. you've got 4 stats to keep on top of:
