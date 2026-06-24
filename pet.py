@@ -22,3 +22,4 @@ class Pet:
 
         if self.hunger < 20:
             self.health = max(0, self.health - 1)
+
