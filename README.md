@@ -1,86 +1,38 @@
-# Thunder McKing ⚡🏎️
-> *Number 7 — Born to Race*
+so this is my virtual pet game for StarDance. your pet is a race car called Thunder McKing — number 7, born to race. the whole character concept was mine, i just needed help bringing him to life visually.
 
-A virtual pet game built for the StarDance Coding Competition. Take care of Thunder McKing, your very own race car — keep him fuelled, happy, and healthy or he won't make it to the finish line.
+how to play
 
-**[🏁 Play the Demo](https://shadxen-fxcodes.github.io/Virtual-Pet/pet_racer.html)**
+when you load in, Thunder McKing pulls up in the garage ready to go. you've got 4 stats to keep on top of:
 
----
 
-## What is it?
+⛽ Fuel — keep him topped up or his health starts dropping
+😄 Mood — he gets sad if you ignore him
+⚡ Energy — drains over time, and you need it to race
+❤️ Health — hits zero and it's game over
 
-Thunder McKing is a tamagotchi-style browser game. Your pet is a race car with four stats that drain over time:
 
-|
- Stat 
-|
- What happens if it runs out 
-|
-|
-------
-|
-----------------------------
-|
-|
- ⛽ Fuel 
-|
- Health starts dropping 
-|
-|
- 😄 Mood 
-|
- Health starts dropping 
-|
-|
- ⚡ Energy 
-|
- Can't race 
-|
-|
- ❤️ Health 
-|
- Game over 
-|
+use the pit crew buttons to look after him:
 
-Keep him alive by using the four action buttons. Let all his stats crash and it's engine blown.
 
----
+REFUEL tops his fuel back up
+RACE sends him out on the track (this is where it gets fun — see below)
+REST recharges his energy
+FIX UP restores his health
 
-## How to play
 
-- **⛽ Refuel** — top up his fuel
-- **🏁 Race** — boosts mood but costs energy
-- **💤 Rest** — recharges energy
-- **🔧 Fix Up** — restores health
+he's also got 5 different expressions depending on how he's doing — happy, hungry, sad, sleepy and sick. you can tell just by looking at him what he needs.
 
-Stats decay every 2 seconds so don't leave him alone too long!
+the race mini game
 
----
+hitting RACE opens up a dodge game where you control Thunder McKing on a track avoiding oncoming cars. the longer you survive the faster it gets. do well and you get a mood bonus, crash and you lose mood. use arrow keys on desktop or tap left/right on mobile.
 
-## Built with
+what's in the project
 
-- HTML + CSS + Vanilla JavaScript
-- No frameworks, no dependencies — opens straight in the browser
-- Custom illustrations (5 emotional states)
+pet_racer.html   — the whole game, runs straight in the browser
+devlog.md        — dev log of the whole process
 
----
+about the code
 
-## Dev notes
+i'll be honest — the bare bones skeleton of this was AI generated to start with. but i took that and made it my own. the character Thunder McKing was fully my idea. the race mini game was something i added myself. and the whole retro pit stop aesthetic — pixel fonts, scanline screen, segmented bars, gritty garage look — was a deliberate choice i made to pull it away from that generic AI-made website vibe and give it a personality.
 
-Started this in Python, spent a few hours building out the pet logic as a class before realising I actually wanted a proper visual game with images and buttons — not a terminal app. Switched to JS and rebuilt it from scratch, carrying over the core stat system.
-
-Full dev log in [`devlog.md`](./devlog.md)
-
----
-
-## Run it locally
-
-Just clone the repo and open `pet_racer.html` in your browser. Or use Live Server in VS Code for auto-refresh while editing.
-
-```bash
-git clone https://github.com/Shadxen-fxcodes/Virtual-Pet
-```
-
----
-
-*Made by [Shadxen-fxcodes](https://github.com/Shadxen-fxcodes) for StarDance 2026*
+the original AI output looked like every other dark blue card on the internet. this doesn't.
