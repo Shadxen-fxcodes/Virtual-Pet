@@ -1,57 +1,36 @@
-# Thunder McKing Virtual Pet
+Virtual Pet: Thunder McKing
+A web-based virtual pet game where you manage and race a stock car named Thunder McKing (#7). Built as a single-page HTML/JS app.
 
-This is my virtual pet game for StarDance. Your pet is a race car called Thunder McKing, car number 7, born to race. The original character concept was created by me, although I used AI to help generate the character artwork.
+Play Demo
 
-## Play the Demo
+Mechanics
+Manage four main status bars to keep Thunder running:
 
-https://shadxen-fxcodes.github.io/Virtual-Pet/pet_racer.html
+Fuel - Drains over time. Depleted fuel slowly drains health.
 
-## How to Play
+Mood - Drops if left idle. Improved by winning races.
 
-When the game starts, Thunder McKing is waiting for you in the garage. Your job is to keep an eye on four key stats:
+Energy - Consumed during races and gradually decreases over time.
 
-⛽ **Fuel** – Keep him fuelled up or his health will start to drop.
+Health - Drains from crashes or zero fuel. Reaching zero triggers Game Over.
 
-😄 **Mood** – If you ignore him for too long, he'll become unhappy.
+Pit Actions
+REFUEL - Restores fuel.
 
-⚡ **Energy** – Energy gradually decreases over time and is needed for racing.
+REST - Restores energy.
 
-❤️ **Health** – If this reaches zero, the game is over.
+FIX UP - Repairs health.
 
-Use the pit crew buttons to take care of him:
+RACE - Launches the minigame.
 
-* **REFUEL** restores his fuel.
-* **RACE** sends him onto the track to compete.
-* **REST** restores his energy.
-* **FIX UP** repairs him and restores health.
+Thunder's visual expression updates dynamically based on status (happy, hungry, sad, sleepy, sick).
 
-Thunder McKing also has five different expressions that reflect how he is feeling: happy, hungry, sad, sleepy and sick. You can usually tell what he needs just by looking at him.
+Race Minigame
+A top-down arcade minigame where you dodge oncoming traffic on the track. Speed increases as time goes on.
 
-## The Race Minigame
+Desktop: Left / Right arrow keys
 
-Selecting **RACE** launches a simple dodging game where you control Thunder McKing on a race track while avoiding oncoming traffic.
+Mobile: Tap left / right side of screen
 
-The longer you survive, the faster the game becomes. A successful race improves Thunder's mood, while crashing will reduce it.
-
-### Controls
-
-**Desktop:** Left and Right Arrow Keys
-**Mobile:** Tap the left and right sides of the screen
-
-## Project Files
-
-* `pet_racer.html` – The complete game, playable in any web browser.
-
-## Development
-
-The development process for this project was documented through StarDance rather than in a separate repository file.
-
-## About the Code
-
-### AI Usage Disclaimer
-
-The initial version of this project was generated with AI as a starting point. I then expanded and modified it significantly to create the final game.
-
-Thunder McKing was my own original character idea, and I designed the overall concept around a racing-themed virtual pet. I also added the race minigame and developed the retro pit-stop style of the game, including the pixel fonts, scanline effects, segmented status bars and garage-inspired interface.
-
-The original AI-generated version provided a useful starting point, but much of the final design, gameplay and visual style was developed and refined throughout the project. My aim was to create something with its own personality and identity rather than something that felt obviously AI-generated.
+How to Run
+Open pet_racer.html directly in any web browser. No dependencies or server setup required.
