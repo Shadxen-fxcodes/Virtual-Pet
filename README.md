@@ -1,48 +1,37 @@
-# Thunder McKing
+# Pet Racer 🏎️
 
-This is a game where you try to manage an ever growing car collection... while racing your pet through different tracks, using nitro boosts, handling pit stops, and outracing the competition.
+A top-down browser racer built for Stardance. You pick a pet, jump on the track, manage your vehicle's health in real time, and hit the pit stop when your car starts falling apart.
 
 ![Virtual Pet Banner](./img/Mainmenu.png)
 
-See **Technicality** for (most of) the game features  
-Scroll for controls
-
-
-Scroll down for Stardance Reviewer Notes, Controls & Known Issues
-
 ---
 
-### Notes For Stardance Reviewers (pls pls pls a 36/36)
+### Notes for Stardance Reviewers
 
 #### Originality
-* Have you ever seen a pet-themed browser racer on Stardance?
-* Have you seen real-time pit management and nitro mechanics mixed with pet companions?
-* Do you see a browser racer with this level of dynamic tracks and controls? I think not!
-* Also the main menu soundtrack is beautiful isn't it.
-* Cars, Pets, Garage, Pit stops, Track environments, Mobile UI, all
+* Wanted to make a dynamic racer with an arcade feel instead of a standard text or puzzle game.
+* Built a real-time pit management mechanic so you actually have to balance your speed against car wear and tear.
+* Created custom touch controls so it works cleanly on mobile devices without needing a keyboard.
+* Composed the main menu soundtrack myself.
 
 ![Gameplay Preview](./img/garage.png)
 
-#### Technicality
-* **Execution Base:** Browser-based execution base running directly via `pet_racer.html` without any external installs needed.
-* **Vehicle Mechanics:** Automatic vehicle state system tracking dynamic car conditions, tire wear, and engine health during the race.
-* **Garage System:** Multiple game managers for garage progress saving, car customization, and stat tracking.
-* **Central Manager:** Centralised game manager that tracks race state, lap timings, pause functions, and menu navigation.
-* **Control Manager:** Responsive Control Manager built for dual inputs, handling seamless switching between keyboard bindings and custom touch screen thumb pads.
-* **Pit-Stop System:** Service system executing 1-6 quick-action routines to repair, tune, and refuel cars on the fly.
-* **Graphics Optimization:** Multi-environment rendering to handle dynamic track visuals, nitro boost particle effects, and garage state management cleanly.
+#### Technical Details
+* **Vanilla Stack:** Built entirely with plain HTML, CSS, and pure JavaScript inside `pet_racer.html` without heavy third-party libraries.
+* **Vehicle State Loop:** Tracks speed, tire wear, and engine heat dynamically. Overusing nitro or taking sharp turns degrades your vehicle stats.
+* **Dual Input System:** Listens for active input type and seamlessly toggles between keyboard bindings and on-screen touch thumb pads.
+* **Mid-Race Pit Actions:** Mapped keys `1` through `6` to repair specific components on the fly without pausing the canvas loop.
+* **Local Storage:** Saves garage unlocks and high scores directly to the browser.
 
 ![Gameplay Preview](./img/mods.png)
 
-#### Usability
-* You can play it right now!
-* Dual control schemes depending on whether you play on desktop or mobile.
-* Settings and menus accessible everywhere so the game works directly in any modern web browser like Chrome, Edge, Safari, or Firefox.
+#### Usability & Polish
+* Plays instantly in Chrome, Safari, Edge, or Firefox.
+* Mobile UI uses ergonomic thumb pad placement so your hands don't cover the main track view.
+* Cleaned up the CSS layout to keep the frame rate steady on lower-end hardware.
 
-#### Storytelling
-* I've got one of the highest view, like and comment counts in all of Stardance, so I do strongly believe I have some of the best storytelling on this platform, mixed with my humour.
-* Mini community built around the devlogs.
-* Check out the full playlist on YouTube!
+#### Storytelling & Devlogs
+* Documented the build process on YouTube, covering every bug fix and feature iteration. Check out the devlogs to see how the project came together.
 
 ![Gameplay Preview](./img/logbook.png)
 
@@ -50,31 +39,31 @@ Scroll down for Stardance Reviewer Notes, Controls & Known Issues
 
 ### Controls
 
-**Format:** Control Keyboard / Mobile Controller
+#### 💻 Desktop
+* **Steer:** `A` / `D` or `←` `→`
+* **Throttle:** `W` or `↑`
+* **Brake / Reverse:** `S` or `↓`
+* **Nitro:** `SPACE`
+* **Pit Actions:** `1` – `6`
+* **Pause:** `P` or `ESC`
 
-#### In-Game Controls
-* **Steer Left / Right:** `←` `→` or `A` `D` / Left Thumb Pad
-* **Throttle:** `↑` or `W` / Right Thumb Pad
-* **Brake:** `↓` or `S` / Right Thumb Pad
-* **Nitro:** `SPACE` / On-Screen Button
-* **Pit Actions:** `1` – `6` / On-Screen Buttons
+#### 📱 Mobile
+* **Steering:** Left on-screen thumb pad
+* **Throttle / Brake:** Right on-screen thumb pad
+* **Nitro & Pit Actions:** On-screen buttons
 
-#### In-Game UI Controls
-* **Pause:** `P` or `ESC` / On-Screen Pause Button
-* **Accept:** `Enter` / Touch Screen Select
-* **Deny:** `ESC` / Touch Screen Back
+---
 
-Damn that's a pretty concise list of controls
+### Recent Updates
+* **CSS Refactor:** Updated menu layouts and improved overall UI responsiveness on mobile screens.
+* **Code Polish:** Cleaned up the main game loop and rewrote initial draft code to ensure the entire script is hand-crafted and lightweight.
 
 ---
 
 ### Known Issues
-* None currently logged for Beta release.
+* None currently logged for this release.
 
 ---
 
 ### About
-A small browser racing game where you race your pet through different tracks, manage your car, use nitro and stop in the pit when needed.
-
-**Languages:**
-* **HTML / JS / CSS:** 100%
+A browser-based pet racing game built with HTML, CSS, and Vanilla JavaScript.
