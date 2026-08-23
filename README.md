@@ -1,4 +1,4 @@
-# Pet Racer 🏎️
+# Thunder McKing🏎️
 
 This is a small project that I made to start of StarDance. I got awfully busy so had to postpone the designing and everything. To begin with, this is heavily inspired by Tamagotchi children mini pet toy and the Disney Pixar Cars character, #95 Lightning McQueen. Initially, I tried to do this using Python as the elected programming language, but if you take a quick look at my first few dev logs, it was frankly a bit mid, so I switched to JavaScript. I hope you, as the consumer have a little bit of fun trying out this little project that I made. It's meant to be a bit of a time-pass kind of game, not your average AAA game unfortunately :(, but here we are! Happy Gaming 🎮!!
 
