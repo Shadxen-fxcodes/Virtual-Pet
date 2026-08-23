@@ -1,4 +1,4 @@
-# Pet Racer
+# Thunder McKing
 
 This is a game where you try to manage an ever growing car collection... while racing your pet through different tracks, using nitro boosts, handling pit stops, and outracing the competition.
 
