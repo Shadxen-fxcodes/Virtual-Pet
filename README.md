@@ -7,10 +7,6 @@ This is a game where you try to manage an ever growing car collection... while r
 See **Technicality** for (most of) the game features  
 Scroll for controls
 
-### Play & Watch!
-
-* **Game Link:** Not currently Live. Will be on itch.io though!
-* **Watch My Videos:** [YouTube](https://youtube.com)
 
 Scroll down for Stardance Reviewer Notes, Controls & Known Issues
 
