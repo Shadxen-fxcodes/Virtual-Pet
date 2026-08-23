@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>THUNDER McKING · Route 7 Garage</title>
+<style type="text/css">@font-face {font-family:'Bungee';font-style:normal;font-weight:400;src:url(/cf-fonts/s/bungee/5.2.7/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'Bungee';font-style:normal;font-weight:400;src:url(/cf-fonts/s/bungee/5.2.7/latin-ext/400/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:'Bungee';font-style:normal;font-weight:400;src:url(/cf-fonts/s/bungee/5.2.7/vietnamese/400/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:'Rye';font-style:normal;font-weight:400;src:url(/cf-fonts/s/rye/5.2.7/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'Rye';font-style:normal;font-weight:400;src:url(/cf-fonts/s/rye/5.2.7/latin-ext/400/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:'Share Tech Mono';font-style:normal;font-weight:400;src:url(/cf-fonts/s/share-tech-mono/5.2.7/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'Special Elite';font-style:normal;font-weight:400;src:url(/cf-fonts/s/special-elite/5.2.8/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:'Special Elite';font-style:normal;font-weight:400;src:url(/cf-fonts/s/special-elite/5.2.8/latin-ext/400/normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}</style>
+<style>
+/* Thunder McKing - garage + oval racer.
+   art direction: 50s roadside garage crossed with an arcade cabinet.
+   hammered steel, enamel signs, chrome bezels, amber warning lamps. */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --steel:#38332c; --steel-hi:#4b453c; --steel-lo:#211d18;
+  --enamel:#0f5f68; --enamel-dk:#083c42;
+  --rust:#a63c1a; --red:#c8261e; --amber:#f0a416; --gold:#f5c400;
+  --cream:#f4ead2; --bone:#cbbfa2; --ink:#14100b;
+  --lamp-off:#3a2f22; --grease:#0b0906;
+  --sign:#e8dcbc;
+}
+
+html,body{height:100%}
+body{
+  background:#100d09;
+  color:var(--cream);
+  font-family:'Special Elite',serif;
+  display:flex; align-items:flex-start; justify-content:center;
+  padding:10px; overflow-x:hidden;
+}
+body.in-race{overflow:hidden}
+
+/* screw heads reused all over */
+.screw{
+  position:absolute;width:9px;height:9px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#8d8375,#3b352d 70%);
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.6),0 1px 1px rgba(255,255,255,.08);
+}
+.screw::after{
+  content:'';position:absolute;inset:3px 1px;background:#241f19;
+  transform:rotate(28deg);border-radius:1px;
+}
+.screw.tl{top:6px;left:6px}.screw.tr{top:6px;right:6px}
+.screw.bl{bottom:6px;left:6px}.screw.br{bottom:6px;right:6px}
+
+/* ─ the cabinet ─ */
+#cab{
+  position:relative;width:100%;max-width:520px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.05),transparent 120px),
+    repeating-linear-gradient(122deg,#3a342c 0 3px,#332e27 3px 6px),
+    var(--steel);
+  border:5px solid #1b1712;
+  border-radius:5px;
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,.05),
+    inset 0 -30px 60px rgba(0,0,0,.55),
+    0 18px 40px rgba(0,0,0,.7);
+  padding:12px 12px 14px;
+}
+#cab::before{ /* grime */
+  content:'';position:absolute;inset:0;pointer-events:none;border-radius:3px;
+  background:radial-gradient(120% 70% at 50% -10%,rgba(255,220,150,.10),transparent 60%),
+             radial-gradient(80% 60% at 110% 110%,rgba(0,0,0,.55),transparent 60%);
+}
+
+/* ─ marquee ─ */
+.marquee{
+  position:relative;text-align:center;padding:9px 34px 11px;
+  background:linear-gradient(180deg,#123f45,#07272c);
+  border:3px solid #05191d;border-radius:3px;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.10),0 3px 0 #0a0806;
+}
+.marquee h1{
+  font-family:'Rye',serif;font-size:1.5rem;line-height:1;letter-spacing:1px;
+  color:#ffe9a8;
+  text-shadow:0 0 6px rgba(240,164,22,.75),0 2px 0 #6b2a08,0 3px 10px rgba(0,0,0,.7);
+}
+.marquee .strap{
+  font-family:'Bungee',sans-serif;font-size:.44rem;letter-spacing:.32em;
+  color:#7fd6cf;margin-top:5px;text-shadow:0 0 8px rgba(68,221,204,.6);
+}
+.bulbs{position:absolute;left:0;right:0;display:flex;justify-content:space-around;padding:0 12px}
+.bulbs.top{top:-6px}.bulbs.bot{bottom:-6px}
+.bulbs i{
+  width:7px;height:7px;border-radius:50%;background:#f7e08a;
+  box-shadow:0 0 7px 2px rgba(247,224,138,.75);
+  animation:chase 1.4s steps(1) infinite;
+}
+.bulbs i:nth-child(2n){animation-delay:.35s}
+.bulbs i:nth-child(3n){animation-delay:.7s}
+@keyframes chase{0%,49%{opacity:1}50%,100%{opacity:.22}}
+.num7{
+  position:absolute;top:8px;right:10px;width:32px;height:32px;border-radius:50%;
+  background:radial-gradient(circle at 36% 30%,#ff5a3c,var(--red) 62%);
+  border:2px solid #f4ead2;box-shadow:0 0 12px rgba(200,38,30,.8),inset 0 -4px 8px rgba(0,0,0,.4);
+  font-family:'Bungee',sans-serif;font-size:1rem;line-height:29px;text-align:center;color:#fff;
+  text-shadow:0 2px 0 rgba(0,0,0,.45);
+}
+
+/* ─ ledger strip: bolts / day / grade ─ */
+.ledger{
+  display:flex;align-items:stretch;gap:7px;margin-top:10px;
+}
+.gauge-chip,.odo{
+  position:relative;flex:1;background:linear-gradient(180deg,#1a1712,#0d0b08);
+  border:2px solid #0a0806;border-radius:3px;padding:6px 8px 5px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+}
+.odo .cap,.gauge-chip .cap{
+  font-family:'Bungee',sans-serif;font-size:.36rem;letter-spacing:.22em;color:#8b7d5f;
+}
+.digits{
+  font-family:'Share Tech Mono',monospace;font-size:1.05rem;line-height:1.15;
+  color:var(--amber);text-shadow:0 0 8px rgba(240,164,22,.55);letter-spacing:2px;
+}
+.digits.small{font-size:.85rem}
+.grade-pips{display:flex;gap:3px;margin-top:4px}
+.grade-pips i{
+  flex:1;height:5px;background:#221d16;border:1px solid #0a0806;
+}
+.grade-pips i.on{background:var(--gold);box-shadow:0 0 6px rgba(245,196,0,.7)}
+.mini-acts{display:flex;flex-direction:column;gap:4px;justify-content:center}
+.mini-acts button{
+  font-family:'Share Tech Mono',monospace;font-size:.6rem;
+  background:#1a1712;color:#9c8f6d;border:2px solid #0a0806;border-radius:3px;
+  padding:3px 7px;cursor:pointer;
+}
+.mini-acts button:hover{color:var(--gold);border-color:#3c3428}
+
+/* ─ garage bay ─ */
+.bay{
+  position:relative;margin-top:10px;height:250px;overflow:hidden;
+  border:3px solid #0a0806;border-radius:3px;
+  background:
+    radial-gradient(70% 45% at 50% 8%,rgba(255,206,120,.28),transparent 62%),
+    linear-gradient(180deg,#151109 0%,#0b0805 62%,#181310 100%);
+  box-shadow:inset 0 0 70px rgba(0,0,0,.85);
+}
+/* breeze-block back wall */
+.bay::before{
+  content:'';position:absolute;inset:0;opacity:.35;
+  background:
+    repeating-linear-gradient(0deg,transparent 0 27px,rgba(0,0,0,.55) 27px 29px),
+    repeating-linear-gradient(90deg,transparent 0 54px,rgba(0,0,0,.5) 54px 56px);
+}
+.worklight{
+  position:absolute;top:-4px;left:50%;transform:translateX(-50%);
+  width:2px;height:26px;background:#2a241c;
+}
+.worklight::after{
+  content:'';position:absolute;left:-15px;top:24px;width:32px;height:14px;
+  background:linear-gradient(180deg,#5c5346,#221e18);
+  border-radius:16px 16px 3px 3px;box-shadow:0 3px 14px rgba(255,206,120,.5);
+}
+.floorline{
+  position:absolute;left:0;right:0;bottom:0;height:34px;
+  background:linear-gradient(180deg,transparent,#0a0704);
+}
+.floorline::before{
+  content:'';position:absolute;left:8%;right:8%;bottom:9px;height:4px;
+  background:repeating-linear-gradient(90deg,var(--gold) 0 14px,transparent 14px 26px);
+  opacity:.28;
+}
+.slick{
+  position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+  width:150px;height:22px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(6,4,2,.9),transparent 72%);
+}
+
+/* pegboard + chalkboard flanking the car */
+.pegboard{
+  position:absolute;top:12px;left:8px;width:52px;height:104px;
+  background:repeating-radial-gradient(circle at 6px 6px,rgba(0,0,0,.5) 0 1.6px,transparent 1.6px 12px),
+             linear-gradient(180deg,#6b5334,#3f3020);
+  border:2px solid #241a10;border-radius:2px;opacity:.9;
+  display:flex;flex-wrap:wrap;align-content:flex-start;gap:3px;padding:5px;
+  font-size:.62rem;line-height:1;
+}
+.chalk{
+  position:absolute;top:12px;right:8px;width:96px;padding:6px 7px;
+  background:#1d2723;border:3px solid #4a3722;border-radius:2px;
+  font-family:'Share Tech Mono',monospace;font-size:.46rem;line-height:1.75;
+  color:#a9c4b4;opacity:.92;box-shadow:inset 0 0 18px rgba(0,0,0,.6);
+}
+.chalk b{color:#e9dfae;font-weight:400}
+.chalk .hd{
+  display:block;font-family:'Bungee',sans-serif;font-size:.4rem;letter-spacing:.14em;
+  color:#f0d99a;margin-bottom:3px;border-bottom:1px dashed rgba(233,223,174,.35);padding-bottom:3px;
+}
+
+#car{
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  max-width:78%;max-height:172px;
+  filter:contrast(1.06) saturate(1.1) drop-shadow(0 14px 18px rgba(0,0,0,.85));
+  transition:opacity .2s;
+  animation:idle 3.6s ease-in-out infinite;
+}
+#car.swap{opacity:0}
+@keyframes idle{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)}}
+#car.hop{animation:hop .55s ease}
+@keyframes hop{
+  0%,100%{transform:translateX(-50%) translateY(0) scale(1)}
+  30%{transform:translateX(-50%) translateY(-18px) scale(1.05)}
+  62%{transform:translateX(-50%) translateY(3px) scale(.98)}
+}
+#car.rattle{animation:rattle .5s ease}
+@keyframes rattle{
+  0%,100%{transform:translateX(-50%) rotate(0)}
+  18%{transform:translateX(-52%) rotate(-2deg)}
+  42%{transform:translateX(-48%) rotate(2deg)}
+  70%{transform:translateX(-51%) rotate(-1deg)}
+}
+.zeds{position:absolute;right:30%;top:44px;font-size:1rem;color:#7fd6cf;opacity:0;pointer-events:none}
+.zeds.on{animation:zed 2.4s linear infinite}
+@keyframes zed{0%{opacity:0;transform:translate(0,0) scale(.6)}25%{opacity:.95}100%{opacity:0;transform:translate(22px,-46px) scale(1.3)}}
+
+/* enamel state plate hanging in the bay */
+.plate{
+  position:absolute;bottom:44px;left:50%;transform:translateX(-50%);
+  font-family:'Bungee',sans-serif;font-size:.44rem;letter-spacing:.2em;
+  padding:4px 12px;color:#0d2b2e;background:var(--sign);
+  border:2px solid #0a0806;border-radius:2px;
+  box-shadow:0 3px 0 rgba(0,0,0,.55);
+}
+.plate.warn{background:var(--amber);animation:blink .7s steps(1) infinite}
+.plate.bad{background:var(--red);color:#ffe8e0}
+@keyframes blink{0%,60%{opacity:1}61%,100%{opacity:.45}}
+
+/* ─ dash cluster: real needle gauges ─ */
+.cluster{
+  position:relative;margin-top:10px;padding:11px 10px 9px;
+  background:linear-gradient(180deg,#221d17,#120f0b);
+  border:3px solid #0a0806;border-radius:4px;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.05),0 3px 0 #080605;
+}
+.dials{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.dial{position:relative;text-align:center}
+.dial svg{width:100%;height:auto;display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.6))}
+.dial .lbl{
+  font-family:'Bungee',sans-serif;font-size:.34rem;letter-spacing:.16em;
+  color:#8b7d5f;margin-top:3px;
+}
+.dial .rd{
+  font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--amber);
+}
+.needle{transform-origin:50px 50px;transition:transform .55s cubic-bezier(.3,1.4,.5,1)}
+
+/* idiot lights */
+.lamps{
+  display:flex;gap:6px;margin-top:9px;padding-top:9px;
+  border-top:2px dashed rgba(180,160,110,.18);
+}
+.lamp{
+  flex:1;text-align:center;font-size:.72rem;line-height:1.9;
+  background:#171310;border:2px solid #0a0806;border-radius:3px;
+  color:var(--lamp-off);filter:saturate(.15) brightness(.55);
+  transition:filter .2s,color .2s,box-shadow .2s;
+}
+.lamp.on{filter:none;color:#fff;box-shadow:inset 0 0 12px rgba(240,164,22,.5),0 0 10px rgba(240,164,22,.35)}
+.lamp.on.red{box-shadow:inset 0 0 12px rgba(200,38,30,.6),0 0 10px rgba(200,38,30,.45)}
+
+/* ─ radio ─ */
+.radio{
+  margin-top:10px;display:flex;align-items:stretch;gap:0;
+  border:3px solid #0a0806;border-radius:3px;overflow:hidden;
+  background:#0e0c08;
+}
+.radio .tag{
+  font-family:'Bungee',sans-serif;font-size:.36rem;letter-spacing:.14em;
+  writing-mode:vertical-rl;padding:5px 4px;color:#0d2b2e;
+  background:linear-gradient(180deg,var(--amber),#b87608);
+}
+.radio .wire{
+  flex:1;padding:7px 9px;font-family:'Share Tech Mono',monospace;
+  font-size:.58rem;line-height:1.5;color:#8fe0d6;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px);
+  min-height:42px;
+}
+.radio .wire b{color:var(--gold);font-weight:400}
+
+/* ─ tool wall (actions) ─ */
+.toolwall{
+  margin-top:10px;padding:10px 9px 9px;position:relative;
+  background:
+    repeating-radial-gradient(circle at 7px 7px,rgba(0,0,0,.45) 0 1.5px,transparent 1.5px 14px),
+    linear-gradient(180deg,#6d5335,#3d2e1e);
+  border:3px solid #241a10;border-radius:3px;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.07);
+}
+.toolwall .hdr{
+  display:flex;align-items:center;gap:7px;margin-bottom:8px;
+  font-family:'Bungee',sans-serif;font-size:.4rem;letter-spacing:.2em;color:#f0d99a;
+}
+.toolwall .hdr::after{content:'';flex:1;height:2px;background:repeating-linear-gradient(90deg,rgba(240,217,154,.5) 0 6px,transparent 6px 12px)}
+.tabs{display:flex;gap:5px;margin-bottom:8px}
+.tabs button{
+  flex:1;font-family:'Bungee',sans-serif;font-size:.38rem;letter-spacing:.14em;
+  padding:6px 3px;cursor:pointer;color:#8c7a55;
+  background:linear-gradient(180deg,#241c12,#150f09);
+  border:2px solid #0a0806;border-radius:2px;
+}
+.tabs button.on{color:#0d2b2e;background:linear-gradient(180deg,#f0d99a,#c9a95e);border-color:#0a0806}
+.sheet{display:none}.sheet.on{display:block}
+
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.tool{
+  position:relative;display:flex;align-items:center;gap:8px;
+  padding:9px 9px 9px 8px;cursor:pointer;text-align:left;
+  font-family:'Special Elite',serif;color:var(--cream);
+  background:linear-gradient(180deg,#4c443a,#2b251e);
+  border:2px solid #14100b;border-radius:3px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 4px 0 #14100b;
+  transition:transform .07s,box-shadow .07s,filter .12s;
+}
+.tool:hover:not(:disabled){filter:brightness(1.14)}
+.tool:active:not(:disabled){transform:translateY(3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 1px 0 #14100b}
+.tool:disabled{filter:grayscale(.75) brightness(.55);cursor:not-allowed}
+.tool .ico{font-size:1.15rem;filter:drop-shadow(0 1px 2px rgba(0,0,0,.7))}
+.tool .txt{flex:1;min-width:0}
+.tool .nm{font-size:.72rem;letter-spacing:.5px;display:block}
+.tool .pr{font-family:'Share Tech Mono',monospace;font-size:.5rem;color:var(--gold);display:block;margin-top:1px}
+.tool .key{
+  font-family:'Share Tech Mono',monospace;font-size:.46rem;color:#b9ab86;
+  border:1px solid #6d6353;border-bottom-width:2px;border-radius:2px;
+  padding:1px 4px;background:#1b1610;
+}
+.tool.big{
+  grid-column:1/-1;justify-content:center;text-align:center;padding:13px 9px;
+  background:linear-gradient(180deg,#1a6b60,#0b3b36);border-color:#031c19;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 5px 0 #031c19;
+}
+.tool.big .nm{font-family:'Bungee',sans-serif;font-size:.82rem;letter-spacing:.16em;color:#c8fff5;text-shadow:0 0 12px rgba(68,221,204,.7)}
+.tool.big .ico{font-size:1.3rem}
+
+/* upgrade rows */
+.mod{
+  display:flex;align-items:center;gap:9px;padding:8px 9px;margin-bottom:6px;
+  background:linear-gradient(180deg,rgba(20,16,11,.85),rgba(10,8,5,.9));
+  border:2px solid #14100b;border-radius:3px;
+}
+.mod .nm{font-size:.68rem;color:#f0d99a;letter-spacing:.5px}
+.mod .ds{font-size:.46rem;color:#9c8f6d;margin-top:2px}
+.mod .rack{display:flex;gap:3px;margin-top:5px}
+.mod .rack i{width:15px;height:6px;background:#0a0806;border:1px solid #2c2519}
+.mod .rack i.on{background:var(--gold);box-shadow:0 0 6px rgba(245,196,0,.6)}
+.mod button{
+  margin-left:auto;font-family:'Share Tech Mono',monospace;font-size:.58rem;
+  color:var(--gold);background:#241c12;border:2px solid #6d6353;border-bottom-width:3px;
+  border-radius:3px;padding:7px 8px;cursor:pointer;white-space:nowrap;
+}
+.mod button:hover:not(:disabled){filter:brightness(1.25)}
+.mod button:disabled{filter:grayscale(.8) brightness(.5);cursor:not-allowed}
+
+/* record sheet */
+.recs{
+  font-family:'Share Tech Mono',monospace;font-size:.58rem;line-height:1.05;
+  background:#efe6c8;color:#241a10;padding:11px 12px;border-radius:2px;
+  box-shadow:inset 0 0 0 2px #cbbfa2,0 3px 0 rgba(0,0,0,.5);
+}
+.recs .rw{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dotted rgba(36,26,16,.35)}
+.recs .rw:last-child{border-bottom:0}
+.recs .rw b{font-weight:400;color:#8c2418}
+.recs .hd{
+  font-family:'Bungee',sans-serif;font-size:.44rem;letter-spacing:.16em;
+  text-align:center;padding-bottom:7px;color:#8c2418;
+}
+.foot-note{font-size:.44rem;color:#a3936c;letter-spacing:.1em;text-align:center;margin-top:8px;line-height:1.8}
+
+/* ═ title screen ═ */
+#title{
+  position:fixed;inset:0;z-index:900;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:16px;padding:20px;
+  background:radial-gradient(80% 60% at 50% 30%,#3a1c08,#0a0705 70%);
+}
+#title[hidden]{display:none}
+.logo{
+  position:relative;text-align:center;padding:20px 30px 18px;max-width:420px;width:100%;
+  background:linear-gradient(180deg,#123f45,#062226);
+  border:5px solid #04171a;border-radius:4px;
+  box-shadow:0 0 0 3px rgba(240,164,22,.35),0 14px 40px rgba(0,0,0,.8),inset 0 3px 0 rgba(255,255,255,.12);
+}
+.logo .top{font-family:'Bungee',sans-serif;font-size:.5rem;letter-spacing:.4em;color:#7fd6cf}
+.logo h2{
+  font-family:'Rye',serif;font-size:2.1rem;line-height:1.05;margin:6px 0 2px;color:#ffe9a8;
+  text-shadow:0 0 10px rgba(240,164,22,.8),0 3px 0 #6b2a08,0 6px 14px rgba(0,0,0,.8);
+}
+.logo .sub{font-family:'Special Elite',serif;font-size:.6rem;color:#c9b98d;letter-spacing:.2em}
+.checkers{height:14px;margin-top:12px;background:
+  repeating-conic-gradient(#f4ead2 0 25%,#14100b 0 50%) 0 0/14px 14px;
+  border-top:2px solid #04171a;border-bottom:2px solid #04171a;opacity:.85}
+.menu{display:flex;flex-direction:column;gap:9px;width:100%;max-width:300px}
+.menu button{
+  position:relative;font-family:'Bungee',sans-serif;font-size:.72rem;letter-spacing:.18em;
+  padding:14px 12px;cursor:pointer;color:#ffe9a8;
+  background:linear-gradient(180deg,#5a2410,#33130a);
+  border:3px solid #14100b;border-radius:3px;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.15),0 5px 0 #14100b;
+}
+.menu button:hover{filter:brightness(1.2)}
+.menu button:active{transform:translateY(3px);box-shadow:inset 0 2px 0 rgba(255,255,255,.12),0 2px 0 #14100b}
+.menu button.ghost{background:linear-gradient(180deg,#2c2620,#181410);color:#b9ab86}
+.menu button:disabled{filter:grayscale(.8) brightness(.55);cursor:not-allowed}
+.menu button small{display:block;font-family:'Share Tech Mono',monospace;font-size:.46rem;letter-spacing:.05em;color:#c9a95e;margin-top:3px}
+.tip{font-family:'Share Tech Mono',monospace;font-size:.5rem;color:#7c6f52;text-align:center;line-height:1.9;max-width:340px}
+#titleCar{width:230px;max-width:70%;filter:drop-shadow(0 14px 26px rgba(0,0,0,.85)) drop-shadow(0 0 18px rgba(240,164,22,.28))}
+
+/* ═ modal (race select / blown engine / controls) ═ */
+.modal{position:fixed;inset:0;z-index:950;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(6,4,2,.9)}
+.modal[hidden]{display:none}
+.card{
+  position:relative;width:100%;max-width:400px;padding:16px 15px 15px;
+  background:linear-gradient(180deg,#3a342c,#221d18);
+  border:4px solid #0a0806;border-radius:4px;
+  box-shadow:0 16px 40px rgba(0,0,0,.85),inset 0 2px 0 rgba(255,255,255,.07);
+  animation:pop .28s cubic-bezier(.3,1.5,.5,1) both;
+}
+@keyframes pop{from{opacity:0;transform:scale(.9) translateY(14px)}to{opacity:1;transform:none}}
+.card h3{
+  font-family:'Bungee',sans-serif;font-size:.78rem;letter-spacing:.2em;text-align:center;
+  color:#f0d99a;padding-bottom:9px;margin-bottom:11px;
+  border-bottom:3px double rgba(240,217,154,.35);
+}
+.card .note{font-family:'Share Tech Mono',monospace;font-size:.52rem;color:#a3936c;text-align:center;line-height:1.9;margin-top:9px}
+
+/* race entry cards, styled like event flyers */
+.flyer{
+  display:flex;align-items:center;gap:10px;width:100%;padding:10px;margin-bottom:8px;
+  cursor:pointer;text-align:left;font-family:'Special Elite',serif;color:var(--cream);
+  background:linear-gradient(100deg,#4c443a,#2b251e 60%);
+  border:2px solid #14100b;border-left:6px solid var(--amber);border-radius:3px;
+  box-shadow:0 4px 0 #14100b;
+}
+.flyer:hover:not(:disabled){filter:brightness(1.15)}
+.flyer:active:not(:disabled){transform:translateY(2px);box-shadow:0 2px 0 #14100b}
+.flyer:disabled{filter:grayscale(.85) brightness(.5);cursor:not-allowed;border-left-color:#5b5346}
+.flyer .fl{font-size:1.3rem}
+.flyer .nm{font-family:'Bungee',sans-serif;font-size:.56rem;letter-spacing:.12em;color:#ffe9a8}
+.flyer .mt{font-family:'Share Tech Mono',monospace;font-size:.48rem;color:#b9ab86;margin-top:3px;line-height:1.6}
+.flyer .pz{margin-left:auto;text-align:right}
+.flyer .pz b{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--gold);font-weight:400;display:block}
+.flyer .pz i{font-family:'Bungee',sans-serif;font-size:.3rem;letter-spacing:.14em;color:#8b7d5f;font-style:normal}
+
+/* ═ RACE SCREEN ═ */
+#track{position:fixed;inset:0;z-index:800;display:none;background:#0a0806}
+#track.on{display:block}
+.arena{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:6px;
+}
+#cv{
+  display:block;max-width:100%;max-height:100%;width:auto;height:auto;
+  border:4px solid #14100b;border-radius:3px;
+  box-shadow:0 0 0 2px rgba(240,164,22,.18),0 0 50px rgba(0,0,0,.9);
+  background:#6d5314;touch-action:none;
+}
+
+/* HUD is absolutely placed over the canvas, arcade style */
+.hud{position:absolute;inset:0;pointer-events:none;z-index:2}
+.hud > *{position:absolute}
+
+/* lap lights, top center */
+.laplights{
+  top:8px;left:50%;transform:translateX(-50%);
+  display:flex;gap:5px;padding:6px 9px;
+  background:rgba(10,8,5,.82);border:2px solid #14100b;border-radius:3px;
+}
+.laplights .cap{font-family:'Bungee',sans-serif;font-size:.34rem;letter-spacing:.18em;color:#8b7d5f;align-self:center;margin-right:3px}
+.laplights i{
+  width:13px;height:13px;border-radius:50%;background:#241d16;
+  box-shadow:inset 0 2px 3px rgba(0,0,0,.8);border:1px solid #0a0806;
+}
+.laplights i.lit{background:radial-gradient(circle at 34% 30%,#fff4b0,var(--gold) 62%);box-shadow:0 0 10px rgba(245,196,0,.85)}
+
+/* position tower, left */
+.tower{
+  top:8px;left:8px;min-width:118px;padding:7px 8px;
+  background:rgba(10,8,5,.84);border:2px solid #14100b;border-radius:3px;
+  font-family:'Share Tech Mono',monospace;font-size:.56rem;line-height:1.75;
+}
+.tower .cap{font-family:'Bungee',sans-serif;font-size:.34rem;letter-spacing:.18em;color:#8b7d5f;display:block;margin-bottom:4px}
+.tower .row{display:flex;gap:6px;color:#b9ab86}
+.tower .row.me{color:var(--gold)}
+.tower .row .p{width:16px;color:#7c6f52}
+.tower .row.me .p{color:var(--amber)}
+
+/* radar, top right */
+.radar{
+  top:8px;right:8px;width:96px;height:70px;padding:5px;
+  background:rgba(8,20,18,.8);border:2px solid #14100b;border-radius:3px;
+}
+.radar canvas{width:100%;height:100%;display:block;opacity:.95}
+
+/* speedo, bottom left */
+.speedo{bottom:8px;left:8px;width:112px}
+.speedo svg{width:100%;height:auto;display:block;filter:drop-shadow(0 3px 6px rgba(0,0,0,.8))}
+.speedo .rd{
+  position:absolute;left:0;right:0;bottom:20px;text-align:center;
+  font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--amber);
+}
+
+/* nitro bottle, bottom right */
+.nitro{
+  bottom:8px;right:8px;width:34px;height:118px;padding:5px;
+  background:rgba(10,8,5,.82);border:2px solid #14100b;border-radius:4px;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+}
+.nitro .tube{
+  flex:1;width:14px;background:#0a0806;border:1px solid #2c2519;border-radius:7px;
+  overflow:hidden;display:flex;flex-direction:column-reverse;
+}
+.nitro .fill{width:100%;height:100%;background:linear-gradient(0deg,#0f5f68,#7fffe8);transition:height .12s linear}
+.nitro .fill.max{box-shadow:0 0 12px #7fffe8}
+.nitro .cap{font-family:'Bungee',sans-serif;font-size:.28rem;letter-spacing:.1em;color:#7fd6cf}
+
+/* lap / time strip, bottom center */
+.strip{
+  bottom:10px;left:50%;transform:translateX(-50%);
+  display:flex;gap:1px;border:2px solid #14100b;border-radius:3px;overflow:hidden;
+}
+.strip div{background:rgba(10,8,5,.86);padding:5px 10px;text-align:center;min-width:62px}
+.strip .k{font-family:'Bungee',sans-serif;font-size:.3rem;letter-spacing:.14em;color:#8b7d5f;display:block}
+.strip .v{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--amber)}
+.strip .v.hot{color:#7fffe8;text-shadow:0 0 8px rgba(127,255,232,.7)}
+
+/* warning lamps column, mid right */
+.warnbox{top:86px;right:8px;display:flex;flex-direction:column;gap:5px}
+.warnbox .lamp{width:32px;font-size:.72rem;line-height:1.8}
+
+/* pit-in button + pause, mid left */
+.corner{bottom:132px;left:8px;display:flex;flex-direction:column;gap:6px;pointer-events:auto}
+.corner button{
+  font-family:'Bungee',sans-serif;font-size:.4rem;letter-spacing:.14em;
+  padding:7px 9px;cursor:pointer;color:#e8c2b0;
+  background:linear-gradient(180deg,#5a2410,#31120a);
+  border:2px solid #14100b;border-radius:3px;box-shadow:0 3px 0 #14100b;
+}
+.corner button:hover{filter:brightness(1.2)}
+
+/* big centred callouts drawn in DOM so they can use the display font */
+.callout{
+  top:38%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Rye',serif;font-size:2.2rem;color:var(--gold);
+  text-shadow:0 4px 0 #7a1a08,0 0 26px rgba(245,196,0,.7);
+  opacity:0;transition:opacity .2s;text-align:center;white-space:nowrap;
+}
+.callout.on{opacity:1;animation:calloutPop .5s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes calloutPop{from{transform:translate(-50%,-50%) scale(.6)}to{transform:translate(-50%,-50%) scale(1)}}
+
+/* drag-strip christmas tree for the start */
+.tree{
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  display:none;flex-direction:column;gap:7px;align-items:center;padding:14px 12px;
+  background:rgba(6,4,2,.72);border:3px solid #14100b;border-radius:5px;
+}
+.tree.on{display:flex}
+.tree i{
+  width:26px;height:26px;border-radius:50%;background:#1d1710;
+  border:2px solid #0a0806;box-shadow:inset 0 3px 5px rgba(0,0,0,.85);
+}
+.tree i.amber.lit{background:radial-gradient(circle at 34% 30%,#ffd88a,#e08a10 65%);box-shadow:0 0 18px rgba(240,164,22,.9)}
+.tree i.green.lit{background:radial-gradient(circle at 34% 30%,#c8ffdc,#19c25a 65%);box-shadow:0 0 22px rgba(25,194,90,.95)}
+.tree .ev{font-family:'Bungee',sans-serif;font-size:.4rem;letter-spacing:.16em;color:#f0d99a;text-align:center;max-width:170px;line-height:1.7}
+
+/* pause + results, drawn as an overlay sheet */
+.sheetover{
+  position:absolute;inset:0;z-index:3;display:none;align-items:center;justify-content:center;
+  background:rgba(6,4,2,.86);padding:16px;
+}
+.sheetover.on{display:flex}
+.clip{
+  width:100%;max-width:330px;padding:15px 16px 14px;position:relative;
+  background:#efe6c8;color:#241a10;border-radius:2px;
+  box-shadow:0 14px 34px rgba(0,0,0,.8),inset 0 0 0 2px #cbbfa2;
+  animation:pop .3s cubic-bezier(.3,1.5,.5,1) both;
+}
+.clip::before{
+  content:'';position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  width:74px;height:16px;background:linear-gradient(180deg,#8d8375,#4a4238);
+  border-radius:3px;box-shadow:0 2px 4px rgba(0,0,0,.6);
+}
+.clip .ttl{font-family:'Bungee',sans-serif;font-size:.9rem;letter-spacing:.1em;text-align:center;color:#8c2418;line-height:1.3}
+.clip .sub{font-family:'Share Tech Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-align:center;color:#6b5a3c;margin-bottom:10px}
+.clip .rw{display:flex;justify-content:space-between;font-family:'Share Tech Mono',monospace;font-size:.58rem;padding:5px 0;border-bottom:1px dotted rgba(36,26,16,.4)}
+.clip .rw b{font-weight:400;color:#8c2418}
+.clip .btns{display:flex;gap:7px;margin-top:12px}
+.clip .btns button{
+  flex:1;font-family:'Bungee',sans-serif;font-size:.46rem;letter-spacing:.12em;
+  padding:11px 6px;cursor:pointer;color:#f4ead2;
+  background:linear-gradient(180deg,#8c2418,#5c1710);
+  border:2px solid #3a0f0a;border-radius:2px;box-shadow:0 3px 0 #3a0f0a;
+}
+.clip .btns button.alt{background:linear-gradient(180deg,#4a4238,#2b251e);border-color:#14100b;box-shadow:0 3px 0 #14100b}
+.clip .stamp{
+  position:absolute;right:10px;bottom:8px;font-family:'Bungee',sans-serif;font-size:.4rem;
+  letter-spacing:.14em;color:rgba(140,36,24,.5);border:2px solid rgba(140,36,24,.4);
+  padding:3px 6px;transform:rotate(-9deg);border-radius:2px;
+}
+
+/* thumb pads */
+.pads{position:absolute;inset:auto 0 0 0;z-index:4;display:none;padding:8px;gap:7px;justify-content:space-between}
+.pads.on{display:flex}
+.pads .grp{display:flex;gap:7px}
+.pad{
+  min-width:62px;padding:16px 10px;cursor:pointer;
+  font-family:'Bungee',sans-serif;font-size:.6rem;letter-spacing:.08em;color:#e9dfae;
+  background:linear-gradient(180deg,#4c443a,#241f19);
+  border:2px solid #14100b;border-radius:5px;box-shadow:0 4px 0 #14100b;
+  user-select:none;-webkit-user-select:none;touch-action:none;
+}
+.pad.gas{background:linear-gradient(180deg,#1a6b60,#08332e);color:#c8fff5;min-width:96px}
+.pad.nos{background:linear-gradient(180deg,#8a5c08,#452c04);color:#ffe9a8}
+.pad.down{transform:translateY(4px);box-shadow:none;filter:brightness(1.35)}
+
+@media (max-width:420px){
+  .marquee h1{font-size:1.15rem}
+  .bay{height:212px}
+  #car{max-height:142px}
+  .chalk{display:none}
+  .pegboard{display:none}
+  .tower{min-width:96px;font-size:.5rem}
+  .radar{width:76px;height:56px}
+  .speedo{width:92px}
+}
+@media (hover:none){ .keyhint{display:none} }
+</style>
+</head>
+<body>
+
+<!-- ══ TITLE ══ -->
+<div id="title">
+  <div class="logo">
+    <div class="top">ROUTE 7 · RADIATOR SPRINGS</div>
+    <h2>Thunder McKing</h2>
+    <div class="sub">GARAGE &amp; DIRT OVAL SIMULATOR</div>
+    <div class="checkers"></div>
+  </div>
+  <img id="titleCar" alt="Thunder McKing">
+  <div class="menu">
+    <button id="mContinue" class="ghost">CONTINUE<small id="mContinueInfo">no logbook found</small></button>
+    <button id="mNew">NEW CAREER<small>start day 1 with 180 bolts</small></button>
+    <button id="mKeys" class="ghost">CONTROLS</button>
+  </div>
+  <div class="tip" id="titleTip">arrows or WASD to drive · space for nitro · P pauses</div>
+</div>
+
+<!-- ══ CABINET ══ -->
+<div id="cab">
+  <span class="screw tl"></span><span class="screw tr"></span>
+  <span class="screw bl"></span><span class="screw br"></span>
+
+  <div class="marquee">
+    <div class="bulbs top"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <h1>McKING GARAGE</h1>
+    <div class="strap">EST. '07 · PIT CREW ON DUTY</div>
+    <div class="bulbs bot"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="num7">7</div>
+  </div>
+
+  <div class="ledger">
+    <div class="odo">
+      <span class="cap">BOLTS IN TIN</span>
+      <div class="digits" id="oBolts">000180</div>
+    </div>
+    <div class="gauge-chip">
+      <span class="cap">DAY / GRADE</span>
+      <div class="digits small" id="oDay">D01 · G1</div>
+      <div class="grade-pips" id="oPips"><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="mini-acts">
+      <button id="bSound">SND ON</button>
+      <button id="bQuit">MENU</button>
+    </div>
+  </div>
+
+  <div class="bay">
+    <div class="worklight"></div>
+    <div class="pegboard">🔧🔨🪛🔩⚙️🧰</div>
+    <div class="chalk">
+      <span class="hd">JOB BOARD</span>
+      LAP REC · <b id="cLap">--</b><br>
+      WINS &nbsp;&nbsp; · <b id="cWins">0</b><br>
+      NEXT &nbsp;&nbsp; · <b id="cNext">shakedown</b>
+    </div>
+    <div class="zeds" id="zeds">💤</div>
+    <img id="car" alt="Thunder McKing">
+    <div class="plate" id="plate">READY TO RACE</div>
+    <div class="floorline"></div>
+    <div class="slick"></div>
+  </div>
+
+  <!-- needle cluster -->
+  <div class="cluster">
+    <span class="screw tl"></span><span class="screw tr"></span>
+    <div class="dials" id="dials"></div>
+    <div class="lamps">
+      <div class="lamp" id="lFuel" title="low fuel">⛽</div>
+      <div class="lamp red" id="lTemp" title="engine">🌡️</div>
+      <div class="lamp" id="lGrip" title="tires">🛞</div>
+      <div class="lamp" id="lHeart" title="spirit">🎺</div>
+      <div class="lamp red" id="lOil" title="service due">🛠️</div>
+    </div>
+  </div>
+
+  <div class="radio">
+    <div class="tag">RADIO</div>
+    <div class="wire" id="wire"><b>CREW CHIEF:</b> engine's warm, kid. say the word.</div>
+  </div>
+
+  <div class="toolwall">
+    <div class="hdr">PIT WALL</div>
+    <div class="tabs">
+      <button class="on" data-sheet="crew">CREW</button>
+      <button data-sheet="mods">MODS</button>
+      <button data-sheet="log">LOGBOOK</button>
+    </div>
+
+    <div class="sheet on" id="sheet-crew">
+      <div class="tools">
+        <button class="tool" id="aFuel"><span class="ico">⛽</span><span class="txt"><span class="nm">Fill Her Up</span><span class="pr">30 bolts · +45 fuel</span></span><span class="key keyhint">1</span></button>
+        <button class="tool" id="aRest"><span class="ico">🛏️</span><span class="txt"><span class="nm">Kip In Stall</span><span class="pr">free · +48 energy</span></span><span class="key keyhint">2</span></button>
+        <button class="tool" id="aFix"><span class="ico">🔧</span><span class="txt"><span class="nm">Spanner Time</span><span class="pr">55 bolts · +55 engine</span></span><span class="key keyhint">3</span></button>
+        <button class="tool" id="aWax"><span class="ico">✨</span><span class="txt"><span class="nm">Buff &amp; Polish</span><span class="pr">20 bolts · +35 spirit</span></span><span class="key keyhint">4</span></button>
+        <button class="tool" id="aTire"><span class="ico">🛞</span><span class="txt"><span class="nm">Fresh Rubber</span><span class="pr">70 bolts · grip 100</span></span><span class="key keyhint">5</span></button>
+        <button class="tool" id="aWork"><span class="ico">🧰</span><span class="txt"><span class="nm">Take A Job</span><span class="pr">earn 25 bolts</span></span><span class="key keyhint">6</span></button>
+        <button class="tool big" id="aRace"><span class="ico">🏁</span><span class="txt"><span class="nm">HIT THE OVAL</span></span></button>
+      </div>
+    </div>
+
+    <div class="sheet" id="sheet-mods"><div id="modList"></div>
+      <div class="foot-note">bolted on for good — a rebuild can't take these off you</div>
+    </div>
+
+    <div class="sheet" id="sheet-log"><div class="recs" id="logSheet"></div></div>
+  </div>
+</div>
+
+<!-- ══ RACE SELECT ══ -->
+<div class="modal" id="mdPick" hidden>
+  <div class="card">
+    <span class="screw tl"></span><span class="screw tr"></span>
+    <h3>TONIGHT'S CARD</h3>
+    <div id="flyers"></div>
+    <button class="menu-back flyer" id="pickBack" style="border-left-color:#5b5346;justify-content:center">
+      <span class="fl">↩</span><span class="nm">BACK TO THE GARAGE</span>
+    </button>
+  </div>
+</div>
+
+<!-- ══ BLOWN ══ -->
+<div class="modal" id="mdDead" hidden>
+  <div class="card">
+    <h3 style="color:#ff8a6a">ENGINE LET GO</h3>
+    <img id="deadCar" alt="Thunder McKing" style="width:100%;max-width:230px;display:block;margin:0 auto 10px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.8))">
+    <div class="recs" id="deadSheet"></div>
+    <div class="clip-btns" style="display:flex;gap:7px;margin-top:12px">
+      <button class="tool" id="bRebuild" style="flex:1;justify-content:center"><span class="ico">🔧</span><span class="txt"><span class="nm">REBUILD HER</span><span class="pr">costs half your bolts</span></span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTROLS ══ -->
+<div class="modal" id="mdKeys" hidden>
+  <div class="card">
+    <h3>CONTROLS</h3>
+    <div class="recs">
+      <div class="rw"><span>steer</span><b>← → / A D</b></div>
+      <div class="rw"><span>throttle</span><b>↑ / W</b></div>
+      <div class="rw"><span>brake</span><b>↓ / S</b></div>
+      <div class="rw"><span>nitro</span><b>SPACE</b></div>
+      <div class="rw"><span>pause</span><b>P / ESC</b></div>
+      <div class="rw"><span>pit actions</span><b>1 – 6</b></div>
+      <div class="rw"><span>on a phone</span><b>thumb pads</b></div>
+    </div>
+    <div class="note">stay off the dirt — it eats your tires<br>nitro tops up a little every lap</div>
+    <div class="clip-btns" style="display:flex;gap:7px;margin-top:12px">
+      <button class="tool" id="keysBack" style="flex:1;justify-content:center"><span class="txt"><span class="nm">GOT IT</span></span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ RACE ══ -->
+<div id="track">
+  <div class="arena"><canvas id="cv" width="960" height="620"></canvas></div>
+
+  <div class="hud">
+    <div class="laplights" id="lapLights"><span class="cap">LAP</span></div>
+
+    <div class="tower"><span class="cap">RUNNING ORDER</span><div id="towerRows"></div></div>
+
+    <div class="radar"><canvas id="radarCv" width="180" height="130"></canvas></div>
+
+    <div class="warnbox">
+      <div class="lamp red" id="wDmg" title="damage">🔥</div>
+      <div class="lamp" id="wTire" title="tire wear">🛞</div>
+      <div class="lamp red" id="wWrong" title="wrong way">↩</div>
+    </div>
+
+    <div class="speedo">
+      <svg viewBox="0 0 100 74" id="speedoSvg"></svg>
+      <div class="rd" id="speedoRd">0</div>
+    </div>
+
+    <div class="nitro">
+      <span class="cap">NOS</span>
+      <div class="tube"><div class="fill" id="nosFill"></div></div>
+    </div>
+
+    <div class="strip">
+      <div><span class="k">LAP</span><span class="v" id="sLap">1/3</span></div>
+      <div><span class="k">POS</span><span class="v" id="sPos">1/4</span></div>
+      <div><span class="k">THIS LAP</span><span class="v" id="sNow">0.00</span></div>
+      <div><span class="k">BEST</span><span class="v" id="sBest">--</span></div>
+    </div>
+
+    <div class="corner">
+      <button id="bPause">⏸ PAUSE</button>
+      <button id="bPitIn">✕ PIT IN</button>
+    </div>
+
+    <div class="callout" id="callout"></div>
+
+    <div class="tree" id="tree">
+      <i class="amber" id="t1"></i><i class="amber" id="t2"></i><i class="amber" id="t3"></i>
+      <i class="green" id="t4"></i>
+      <div class="ev" id="treeEv"></div>
+    </div>
+  </div>
+
+  <div class="pads" id="pads">
+    <div class="grp">
+      <button class="pad" data-k="left">◀</button>
+      <button class="pad" data-k="right">▶</button>
+    </div>
+    <div class="grp">
+      <button class="pad" data-k="brake">BRK</button>
+      <button class="pad nos" data-k="nos">NOS</button>
+      <button class="pad gas" data-k="gas">GAS</button>
+    </div>
+  </div>
+
+  <div class="sheetover" id="over">
+    <div class="clip">
+      <div class="ttl" id="ovTtl">RACE CONTROL</div>
+      <div class="sub" id="ovSub"></div>
+      <div id="ovRows"></div>
+      <div class="btns" id="ovBtns"></div>
+      <div class="stamp" id="ovStamp">ROUTE 7</div>
+    </div>
+  </div>
+</div>
+
+<script>
+var el = function(id){ return document.getElementById(id); };
+var lim = function(v,a,b){ return v<a?a:(v>b?b:v); };
+var t2 = function(n){ return n==null ? '--' : n.toFixed(2); };
+var pad6 = function(n){ var s='00000'+Math.max(0,Math.floor(n)); return s.slice(-6); };
+
+// ── logbook ────────────────────────────────────────────────
+var KEY = 'mcking.route7';
+function fresh(){
+  return { fuel:100, spirit:100, energy:100, engine:100, grip:100,
+           bolts:180, xp:0, day:1, beat:0,
+           bestLap:null, bestRace:null, wins:0, starts:0, podiums:0,
+           mods:{ mill:0, rubber:0, bottle:0 },
+           mute:false, stamp:Date.now() };
+}
+var G = fresh();
+var running = false, napping = false, heartbeat = null, hasSave = false;
+
+function store(){ G.stamp = Date.now(); try{ localStorage.setItem(KEY, JSON.stringify(G)); }catch(e){} }
+function recall(){
+  try{
+    var raw = localStorage.getItem(KEY); if(!raw) return false;
+    var d = JSON.parse(raw); if(!d || typeof d !== 'object') return false;
+    G = Object.assign(fresh(), d);
+    G.mods = Object.assign({ mill:0, rubber:0, bottle:0 }, d.mods || {});
+    return true;
+  }catch(e){ return false; }
+}
+var grade = function(){ return 1 + Math.floor(G.xp/120); };
+
+// ── the five photographs ───────────────────────────────────
+var MOODS = ['happy','hungry','sad','sick','sleepy'];
+var PIC = {}, absent = [];
+var STANDIN = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+  "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 120'>" +
+  "<path d='M18 86 Q22 58 62 52 Q86 28 128 30 Q176 32 196 56 L222 62 Q232 66 230 82 L226 92 L20 92 Z' fill='#F2C300' stroke='#8a6a00' stroke-width='3'/>" +
+  "<path d='M18 86 H226 v8 q0 6-8 6 H26 q-8 0-8-6 Z' fill='#C81E1E'/>" +
+  "<path d='M74 54 Q94 36 128 36 Q160 38 178 56 Z' fill='#2b3b44'/>" +
+  "<circle cx='68' cy='96' r='17'/><circle cx='184' cy='96' r='17'/>" +
+  "<circle cx='104' cy='52' r='11' fill='#fff'/><circle cx='140' cy='52' r='11' fill='#fff'/>" +
+  "<circle cx='106' cy='54' r='6' fill='#2e7d32'/><circle cx='142' cy='54' r='6' fill='#2e7d32'/></svg>");
+
+function hunt(name){
+  var tries = [], dirs = ['', 'images/', 'img/', 'assets/'], exts = ['jpg','png','jpeg','webp'];
+  for(var d=0; d<dirs.length; d++) for(var e=0; e<exts.length; e++) tries.push(dirs[d] + name + '.' + exts[e]);
+  return new Promise(function(done){
+    var i = 0;
+    (function next(){
+      if(i >= tries.length){ done(null); return; }
+      var url = tries[i++], probe = new Image();
+      probe.onload = function(){ done(url); };
+      probe.onerror = next;
+      probe.src = url;
+    })();
+  });
+}
+function gatherPics(){
+  return Promise.all(MOODS.map(hunt)).then(function(found){
+    MOODS.forEach(function(m,i){ if(found[i]) PIC[m] = found[i]; });
+    absent = MOODS.filter(function(m,i){ return !found[i]; });
+    if(!PIC.happy) PIC.happy = STANDIN;
+    MOODS.forEach(function(m){ if(!PIC[m]) PIC[m] = PIC.happy; });
+  });
+}
+// drop the jpgs straight onto the window to hot-swap art
+['dragover','dragenter'].forEach(function(ev){ window.addEventListener(ev, function(e){ e.preventDefault(); }); });
+window.addEventListener('drop', function(e){
+  e.preventDefault();
+  var files = Array.prototype.slice.call((e.dataTransfer && e.dataTransfer.files) || []), got = 0;
+  files.forEach(function(f){
+    if(String(f.type).indexOf('image') !== 0) return;
+    var stem = f.name.toLowerCase().split('.')[0];
+    for(var i=0;i<MOODS.length;i++){
+      if(stem.indexOf(MOODS[i]) !== -1){ PIC[MOODS[i]] = URL.createObjectURL(f); got++; break; }
+    }
+  });
+  if(got){ shown = null; refresh(); chief('picked up ' + got + ' new photo(s) off the desk.'); }
+});
+
+// ── sound: one oscillator bench, no files ──────────────────
+var actx = null, eng = null, engG = null, engF = null;
+function bench(){
+  if(G.mute) return null;
+  if(!actx){ try{ actx = new (window.AudioContext || window.webkitAudioContext)(); }catch(e){ return null; } }
+  if(actx.state === 'suspended') actx.resume();
+  return actx;
+}
+function tone(hz, len, shape, vol){
+  var a = bench(); if(!a) return;
+  var o = a.createOscillator(), g = a.createGain();
+  o.type = shape || 'square'; o.frequency.value = hz;
+  g.gain.value = vol || 0.05;
+  g.gain.exponentialRampToValueAtTime(0.0001, a.currentTime + len);
+  o.connect(g).connect(a.destination); o.start(); o.stop(a.currentTime + len);
+}
+function clunk(vol){
+  var a = bench(); if(!a) return;
+  var n = Math.floor(a.sampleRate * 0.2), b = a.createBuffer(1, n, a.sampleRate), d = b.getChannelData(0);
+  for(var i=0;i<n;i++) d[i] = (Math.random()*2-1) * Math.pow(1-i/n, 2.6);
+  var s = a.createBufferSource(), g = a.createGain(), f = a.createBiquadFilter();
+  f.type='lowpass'; f.frequency.value=820; g.gain.value = vol || 0.28;
+  s.buffer=b; s.connect(f).connect(g).connect(a.destination); s.start();
+}
+function engStart(){
+  var a = bench(); if(!a || eng) return;
+  eng = a.createOscillator(); engF = a.createBiquadFilter(); engG = a.createGain();
+  eng.type='sawtooth'; eng.frequency.value=58;
+  engF.type='lowpass'; engF.frequency.value=600; engG.gain.value=0.02;
+  eng.connect(engF).connect(engG).connect(a.destination); eng.start();
+}
+function engRev(v, top){
+  if(!eng) return;
+  var r = lim(v/Math.max(1,top), 0, 1.4);
+  eng.frequency.value = 50 + r*135;
+  engG.gain.value = 0.016 + r*0.05;
+  engF.frequency.value = 480 + r*950;
+}
+function engStop(){ if(eng){ try{ eng.stop(); }catch(e){} } eng = null; engG = null; engF = null; }
+
+// ── crew chief radio ───────────────────────────────────────
+var CHATTER = {
+  happy:["engine's warm, kid. say the word.","tank's full, rubber's good. let's go bruise some egos.","she's purring. best she's felt all season."],
+  hungry:["fuel light's been on since turn three, kid.","we're running on fumes and optimism.","get her on the pump before she coughs."],
+  sad:["she's sulking. nobody's cheered in a while.","give her a polish, she races on pride.","long week. no flags, no glory."],
+  sick:["something's knocking in there. don't ignore it.","she's running hot — get her on the lift.","that noise? that's money leaving the building."],
+  sleepy:["she's asleep in the stall. let her be.","pistons are yawning, kid.","five more minutes, she says."]
+};
+var lastWire = '';
+function chief(line){
+  el('wire').innerHTML = '<b>CREW CHIEF:</b> ' + line;
+  lastWire = line;
+}
+function chatter(mood){
+  var pool = CHATTER[mood] || CHATTER.happy, pick = pool[Math.floor(Math.random()*pool.length)];
+  if(pick === lastWire && pool.length > 1) pick = pool[(pool.indexOf(pick)+1) % pool.length];
+  chief(pick);
+}
+
+// ── the needle cluster ─────────────────────────────────────
+var DIALS = [
+  { id:'fuel',   key:'fuel',   lbl:'FUEL',   face:'#f0a416' },
+  { id:'engine', key:'engine', lbl:'ENGINE', face:'#c8261e' },
+  { id:'grip',   key:'grip',   lbl:'GRIP',   face:'#9aa0a6' },
+  { id:'spirit', key:'spirit', lbl:'SPIRIT', face:'#44ddcc' }
+];
+function buildDials(){
+  var host = el('dials'), out = '';
+  DIALS.forEach(function(d){
+    var ticks = '';
+    for(var i=0;i<=10;i++){
+      var a = (-215 + i*17.5) * Math.PI/180;
+      var r1 = i%5===0 ? 30 : 34, r2 = 40;
+      ticks += "<line x1='" + (50+Math.cos(a)*r1).toFixed(1) + "' y1='" + (50+Math.sin(a)*r1).toFixed(1) +
+               "' x2='" + (50+Math.cos(a)*r2).toFixed(1) + "' y2='" + (50+Math.sin(a)*r2).toFixed(1) +
+               "' stroke='" + (i<=2 ? '#c8261e' : '#8b7d5f') + "' stroke-width='" + (i%5===0?2.4:1.2) + "'/>";
+    }
+    out +=
+      "<div class='dial'><svg viewBox='0 0 100 100'>" +
+      "<circle cx='50' cy='50' r='47' fill='#0c0a07' stroke='#6d6353' stroke-width='4'/>" +
+      "<circle cx='50' cy='50' r='43' fill='none' stroke='#2a241c' stroke-width='2'/>" +
+      "<path d='M20 76 A42 42 0 0 1 12 44' fill='none' stroke='" + d.face + "' stroke-width='3' opacity='.55'/>" +
+      ticks +
+      "<circle cx='50' cy='50' r='24' fill='none' stroke='rgba(255,255,255,.05)' stroke-width='8'/>" +
+      "<g class='needle' id='ndl-" + d.id + "'>" +
+      "<polygon points='50,50 47,46 50,12 53,46' fill='" + d.face + "'/>" +
+      "</g><circle cx='50' cy='50' r='6' fill='#4b453c' stroke='#0a0806' stroke-width='2'/>" +
+      "</svg><div class='lbl'>" + d.lbl + "</div><div class='rd' id='rd-" + d.id + "'>100</div></div>";
+  });
+  host.innerHTML = out;
+}
+function swingNeedles(){
+  DIALS.forEach(function(d){
+    var v = lim(G[d.key], 0, 100);
+    el('ndl-'+d.id).style.transform = 'rotate(' + (-125 + v*2.5) + 'deg)';
+    el('rd-'+d.id).textContent = Math.round(v);
+  });
+}
+
+// ── garage state ───────────────────────────────────────────
+var PLATES = { happy:'READY TO RACE', hungry:'NEEDS FUEL', sad:'LOW SPIRITS', sick:'IN FOR SERVICE', sleepy:'RESTING UP' };
+var shown = null, wireTimer = null;
+
+function mood(){
+  if(!running) return 'sick';
+  if(napping) return 'sleepy';
+  if(G.engine < 35) return 'sick';
+  if(G.fuel < 30) return 'hungry';
+  if(G.energy < 30) return 'sleepy';
+  if(G.spirit < 35) return 'sad';
+  return 'happy';
+}
+function showCar(m){
+  if(m === shown) return;
+  shown = m;
+  var img = el('car');
+  img.classList.add('swap');
+  var pre = new Image();
+  pre.onload = function(){ img.src = pre.src; img.classList.remove('swap'); };
+  pre.onerror = function(){ img.src = PIC.happy || STANDIN; img.classList.remove('swap'); };
+  pre.src = PIC[m] || PIC.happy || STANDIN;
+  el('zeds').classList.toggle('on', m === 'sleepy');
+  chatter(m);
+}
+function jolt(cls){
+  var c = el('car');
+  c.classList.remove('hop','rattle');
+  void c.offsetWidth;
+  c.classList.add(cls);
+}
+function lamp(id, on, red){
+  var n = el(id);
+  n.classList.toggle('on', !!on);
+  if(red !== undefined) n.classList.toggle('red', !!red);
+}
+function refresh(){
+  swingNeedles();
+  el('oBolts').textContent = pad6(G.bolts);
+  el('oDay').textContent = 'D' + ('0'+G.day).slice(-2) + ' · G' + grade();
+  var pips = el('oPips').children, lv = Math.min(5, ((grade()-1) % 5) + (grade()>1?0:0));
+  for(var i=0;i<pips.length;i++) pips[i].classList.toggle('on', i < Math.min(5, grade()));
+
+  var m = mood();
+  showCar(m);
+  var p = el('plate');
+  p.textContent = napping ? 'ASLEEP IN STALL' : PLATES[m];
+  p.className = 'plate' + (m === 'sick' ? ' bad' : (m === 'happy' || napping ? '' : ' warn'));
+
+  lamp('lFuel', G.fuel < 30);
+  lamp('lTemp', G.engine < 45);
+  lamp('lGrip', G.grip < 30);
+  lamp('lHeart', G.spirit < 35);
+  lamp('lOil', G.engine < 70 || G.grip < 50);
+
+  el('cLap').textContent = G.bestLap ? t2(G.bestLap) + 's' : '--';
+  el('cWins').textContent = G.wins;
+  var nx = CARD.filter(function(c){ return G.wins < c.need; })[0];
+  el('cNext').textContent = nx ? nx.name.toLowerCase().split(' ')[0] + ' @ ' + nx.need + 'w' : 'all unlocked';
+
+  el('bSound').textContent = G.mute ? 'SND OFF' : 'SND ON';
+  buildMods(); buildLog(); gateTools();
+}
+function gateTools(){
+  var busy = napping || !running;
+  [['aFuel',30],['aFix',55],['aWax',20],['aTire',70]].forEach(function(p){
+    el(p[0]).disabled = busy || G.bolts < p[1];
+  });
+  el('aRest').disabled = busy;
+  el('aWork').disabled = busy || G.energy < 18;
+  el('aRace').disabled = busy;
+}
+
+// ── pit actions ────────────────────────────────────────────
+function spend(n){
+  if(G.bolts < n){ chief("tin's light, kid. take a job first."); clunk(0.12); return false; }
+  G.bolts -= n; return true;
+}
+function pit(what){
+  if(!running || napping) return;
+  if(what === 'fuel'){
+    if(!spend(30)) return;
+    G.fuel = lim(G.fuel+45,0,100); G.spirit = lim(G.spirit+4,0,100);
+    jolt('hop'); tone(520,.12,'square',.05); chief('tank\'s full. she smells like race day.');
+  } else if(what === 'rest'){
+    napping = true; refresh(); tone(300,.3,'sine',.05);
+    chief('lights off. let her sleep it off.');
+    setTimeout(function(){
+      napping = false;
+      G.energy = lim(G.energy+48,0,100); G.fuel = lim(G.fuel-6,0,100);
+      G.spirit = lim(G.spirit+3,0,100); G.engine = lim(G.engine+4,0,100);
+      jolt('hop'); chief('up and awake. rarin\' to go.'); refresh(); store();
+    }, 3200);
+    return;
+  } else if(what === 'fix'){
+    if(!spend(55)) return;
+    G.engine = lim(G.engine+55,0,100); G.spirit = lim(G.spirit+6,0,100);
+    jolt('hop'); tone(660,.15,'triangle',.05); chief('knock\'s gone. timing\'s sweet again.');
+  } else if(what === 'wax'){
+    if(!spend(20)) return;
+    G.spirit = lim(G.spirit+35,0,100);
+    jolt('hop'); tone(900,.1,'sine',.05); chief('look at that shine. she\'s strutting.');
+  } else if(what === 'tire'){
+    if(!spend(70)) return;
+    G.grip = 100;
+    jolt('hop'); clunk(.16); chief('four fresh ones on. mind the first lap.');
+  } else if(what === 'work'){
+    G.bolts += 25; G.energy = lim(G.energy-16,0,100); G.spirit = lim(G.spirit-7,0,100);
+    jolt('rattle'); tone(240,.1,'square',.04); chief('towed a tractor out of a ditch. 25 bolts.');
+  }
+  refresh(); store();
+}
+
+// ── clock ──────────────────────────────────────────────────
+function beat(){
+  if(!running || R.live) return;
+  G.beat++;
+  G.day = 1 + Math.floor(G.beat/70);
+  G.fuel = lim(G.fuel-0.30,0,100);
+  G.energy = lim(G.energy-0.22,0,100);
+  G.spirit = lim(G.spirit-0.18,0,100);
+  G.grip = lim(G.grip-0.02,0,100);
+  if(G.fuel <= 0 || G.energy <= 0) G.engine = lim(G.engine-0.65,0,100);
+  if(G.spirit <= 0) G.engine = lim(G.engine-0.2,0,100);
+  if(G.engine <= 0){ blowUp(); return; }
+  refresh();
+  if(G.beat % 10 === 0) store();
+}
+function startClock(){ clearInterval(heartbeat); heartbeat = setInterval(beat, 1200); }
+
+function blowUp(){
+  running = false; clearInterval(heartbeat); engStop();
+  el('deadCar').src = PIC.sick || PIC.happy || STANDIN;
+  el('deadSheet').innerHTML =
+    "<div class='hd'>FINAL LOGBOOK</div>" +
+    row('days on the clock', G.day) + row('career wins', G.wins) +
+    row('best lap', G.bestLap ? t2(G.bestLap)+'s' : '--') +
+    row('bolts in the tin', Math.floor(G.bolts));
+  el('mdDead').hidden = false;
+  clunk(.42); store();
+}
+function rebuild(){
+  var keep = { bolts: Math.floor(G.bolts/2), xp:G.xp, day:G.day, beat:G.beat,
+    bestLap:G.bestLap, bestRace:G.bestRace, wins:G.wins, starts:G.starts, podiums:G.podiums,
+    mods:G.mods, mute:G.mute };
+  G = Object.assign(fresh(), keep);
+  running = true; napping = false;
+  el('mdDead').hidden = true;
+  startClock(); chief('new block in, old grudges intact. back to work.');
+  refresh(); store();
+}
+
+// ── mods ───────────────────────────────────────────────────
+var MODS = [
+  { k:'mill',   nm:'BIG-BORE MILL',  ds:'more top end, harder shove off the corner', tag:0, cost:90 },
+  { k:'rubber', nm:'SOFT COMPOUND',  ds:'sharper bite, holds a line under load',     tag:1, cost:80 },
+  { k:'bottle', nm:'BIGGER BOTTLE',  ds:'deeper nitro, quicker refill, bigger kick', tag:2, cost:100 }
+];
+var MODMAX = 5;
+function modCost(m){ return m.cost * (G.mods[m.k] + 1); }
+function buildMods(){
+  var host = el('modList'); host.innerHTML = '';
+  MODS.forEach(function(m){
+    var lv = G.mods[m.k], maxed = lv >= MODMAX, cost = modCost(m);
+    var rack = '';
+    for(var i=0;i<MODMAX;i++) rack += "<i" + (i<lv ? " class='on'" : "") + "></i>";
+    var row = document.createElement('div');
+    row.className = 'mod';
+    row.innerHTML = "<div><div class='nm'>" + m.nm + "</div><div class='ds'>" + m.ds +
+                    "</div><div class='rack'>" + rack + "</div></div>";
+    var b = document.createElement('button');
+    b.textContent = maxed ? 'MAXED' : ('🔧 ' + cost);
+    b.disabled = maxed || G.bolts < cost || !running;
+    b.addEventListener('click', function(){
+      if(!spend(cost)) return;
+      G.mods[m.k]++;
+      tone(1040,.14,'triangle',.06);
+      chief(m.nm.toLowerCase() + ' fitted — level ' + G.mods[m.k] + '.');
+      refresh(); store();
+    });
+    row.appendChild(b); host.appendChild(row);
+  });
+}
+function row(k,v){ return "<div class='rw'><span>" + k + "</span><b>" + v + "</b></div>"; }
+function buildLog(){
+  var open = CARD.filter(function(c){ return G.wins >= c.need; }).length;
+  el('logSheet').innerHTML =
+    "<div class='hd'>McKING LOGBOOK · No. 7</div>" +
+    row('best lap', G.bestLap ? t2(G.bestLap) + 's' : 'not set') +
+    row('best race', G.bestRace ? t2(G.bestRace) + 's' : 'not set') +
+    row('wins / podiums', G.wins + ' / ' + G.podiums) +
+    row('starts', G.starts) +
+    row('grade', 'G' + grade() + '  (' + (G.xp % 120) + '/120 xp)') +
+    row('bolts', Math.floor(G.bolts)) +
+    row('meets open', open + ' of ' + CARD.length) +
+    row('days run', G.day);
+}
+
+// ── tonight's card ─────────────────────────────────────────
+var CARD = [
+  { name:'DIRT OVAL SHAKEDOWN', flag:'🏜️', laps:2, foes:2, edge:0.84, purse:70,  need:0, fuel:14, energy:14 },
+  { name:'ROUTE 7 SPEEDWAY',    flag:'🏁', laps:3, foes:3, edge:0.96, purse:135, need:2, fuel:20, energy:18 },
+  { name:'PISTON CUP FINAL',    flag:'🏆', laps:4, foes:4, edge:1.06, purse:250, need:6, fuel:28, energy:24 }
+];
+function openCard(){
+  if(!running || napping) return;
+  var host = el('flyers'); host.innerHTML = '';
+  CARD.forEach(function(c, i){
+    var shut = G.wins < c.need;
+    var b = document.createElement('button');
+    b.className = 'flyer'; b.disabled = shut;
+    b.innerHTML =
+      "<span class='fl'>" + (shut ? '🔒' : c.flag) + "</span>" +
+      "<span><span class='nm'>" + c.name + "</span><span class='mt'>" + c.laps + " laps · " + (c.foes+1) + " cars" +
+      (shut ? " · needs " + c.need + " wins" : " · -" + c.fuel + " fuel · -" + c.energy + " energy") + "</span></span>" +
+      "<span class='pz'><b>" + c.purse + "</b><i>BOLT PURSE</i></span>";
+    b.addEventListener('click', function(){ lineUp(i); });
+    host.appendChild(b);
+  });
+  el('mdPick').hidden = false;
+}
+
+/* ════════════ THE OVAL ════════════
+   simple analytic oval: cars are tracked by angle round the
+   centre, so lap counting is signed and can't be farmed by
+   reversing over the line. */
+var CV = el('cv'), X = CV.getContext('2d');
+var RAD = el('radarCv'), RX = RAD.getContext('2d');
+var W = 960, H = 620, TAU = Math.PI*2;
+var OV = { cx:480, cy:310, rx:352, ry:208, w:64 };
+
+var held = {}, thumb = {};
+var R = {
+  live:false, held:false, stage:'tree', frame:null, prev:0,
+  meet:null, laps:3, done:0, lapAt:0, goAt:0, splits:[],
+  foesHome:0, kick:0, glow:0, wrongT:0, hitAt:0, wear:0, hurt:0,
+  callT:0
+};
+var ME = null, FOES = [], MARKS = [], DUST = [];
+
+function onOval(t, off){
+  var c = Math.cos(t), s = Math.sin(t);
+  var x = OV.cx + OV.rx*c, y = OV.cy + OV.ry*s;
+  if(off){
+    var nx = OV.ry*c, ny = OV.rx*s, L = Math.hypot(nx,ny) || 1;
+    x += nx/L*off; y += ny/L*off;
+  }
+  return { x:x, y:y };
+}
+var angleAt = function(x,y){ return Math.atan2((y-OV.cy)/OV.ry, (x-OV.cx)/OV.rx); };
+var arcRate = function(t){ return Math.hypot(OV.rx*Math.sin(t), OV.ry*Math.cos(t)) || 1; };
+var heading = function(t){ return Math.atan2(OV.ry*Math.cos(t), -OV.rx*Math.sin(t)); };
+
+// scenery baked once
+var SET = { grit:[], cacti:[], bales:[], poles:[] };
+(function dressTrack(){
+  for(var i=0;i<460;i++){
+    SET.grit.push({ x:Math.random()*W, y:Math.random()*H, s:1+Math.random()*2,
+      c:['rgba(255,236,182,.10)','rgba(74,46,10,.20)','rgba(255,255,255,.05)'][i%3] });
+  }
+  [[64,84],[898,110],[56,548],[892,528],[478,52],[478,576]].forEach(function(p){ SET.cacti.push({x:p[0],y:p[1]}); });
+  for(var b=0;b<22;b++){
+    var t = b/22*TAU;
+    SET.bales.push({ p:onOval(t, OV.w+26), t:t });
+  }
+  for(var k=0;k<8;k++) SET.poles.push(onOval(k/8*TAU, -(OV.w+56)));
+})();
+
+var GRID = [
+  { nm:'CHICK',  body:'#3f9b3f', trim:'#1c5a1c' },
+  { nm:'STORM',  body:'#2f6fd0', trim:'#143a76' },
+  { nm:'BOOST',  body:'#8b3fc0', trim:'#4b1c6b' },
+  { nm:'DINOCO', body:'#25c3e0', trim:'#0c6a7b' }
+];
+
+function tune(){
+  var m = G.mods.mill, r = G.mods.rubber, b = G.mods.bottle;
+  var wornGrip = 0.72 + 0.28*(G.grip/100);
+  return {
+    top: 250 + 22*m,
+    shove: 205 + 26*m,
+    bite: (2.30 + 0.11*r) * wornGrip,
+    tank: 100 + 15*b,
+    burn: 36 - 3*b,
+    trickle: 8 + 2.4*b,
+    kickMul: 1.22 + 0.028*b
+  };
+}
+
+// ── line-up + start lights ─────────────────────────────────
+function lineUp(idx){
+  var meet = CARD[idx];
+  if(G.wins < meet.need) return;
+  if(G.fuel < meet.fuel + 4){ chief('not enough fuel to make the distance.'); return; }
+  if(G.energy < meet.energy + 4){ chief('she\'s too tired to line up. get her some rest.'); return; }
+  if(G.engine < 18){ chief('i\'m not sending her out like that. fix her first.'); return; }
+  if(G.grip < 8){ chief('those tires are canvas, kid. fresh rubber first.'); return; }
+
+  el('mdPick').hidden = true;
+  clearInterval(heartbeat);
+  G.fuel = lim(G.fuel-meet.fuel,0,100);
+  G.energy = lim(G.energy-meet.energy,0,100);
+  G.starts++;
+
+  R.meet = meet; R.laps = meet.laps; R.done = 0; R.splits = [];
+  R.foesHome = 0; R.kick = 0; R.glow = 0; R.wrongT = 0; R.hitAt = 0;
+  R.wear = 0; R.hurt = 0; R.stage = 'tree'; R.held = false; R.prev = 0; R.callT = 0;
+  MARKS = []; DUST = [];
+
+  var t = tune(), gap = 0.055, t0 = -Math.PI/2 - gap, s = onOval(t0, -20);
+  ME = { x:s.x, y:s.y, a:heading(t0), v:0, sum:0, was:t0, gap:gap,
+         nos:t.tank, burning:false, offT:0 };
+
+  FOES = [];
+  for(var i=0;i<meet.foes;i++){
+    var g = GRID[i % GRID.length], fg = gap + 0.030*(i+1), ft = -Math.PI/2 - fg;
+    FOES.push({
+      nm:g.nm, body:g.body, trim:g.trim, t:ft, sum:0, gap:fg,
+      lane:(i%2 ? 26 : -46) + (i>1 ? (i%2?14:-14) : 0), off:0, wob:Math.random()*6,
+      pace:(248 + 11*G.mods.mill) * meet.edge * (0.96 + Math.random()*0.08),
+      v:0, home:false, at:null, x:null, y:null, a:0
+    });
+  }
+
+  buildLapLights();
+  el('over').classList.remove('on');
+  el('track').classList.add('on');
+  document.body.classList.add('in-race');
+  if(window.matchMedia && window.matchMedia('(hover:none)').matches) el('pads').classList.add('on');
+  el('treeEv').textContent = meet.name + ' · ' + meet.laps + ' LAPS';
+  el('tree').classList.add('on');
+  R.live = true;
+  engStart();
+  runTree();
+  paintHud();
+  R.frame = requestAnimationFrame(spin);
+}
+function runTree(){
+  var bulbs = ['t1','t2','t3'], i = 0;
+  ['t1','t2','t3','t4'].forEach(function(b){ el(b).classList.remove('lit'); });
+  var step = setInterval(function(){
+    if(!R.live || R.stage !== 'tree'){ clearInterval(step); return; }
+    if(i < 3){ el(bulbs[i]).classList.add('lit'); tone(520,.1,'square',.06); i++; return; }
+    clearInterval(step);
+    el('t4').classList.add('lit'); tone(920,.34,'square',.07);
+    setTimeout(function(){ el('tree').classList.remove('on'); }, 260);
+    R.stage = 'green'; R.goAt = performance.now(); R.lapAt = R.goAt;
+    shout('GREEN!', 0.8);
+  }, 620);
+}
+function buildLapLights(){
+  var box = el('lapLights'), out = "<span class='cap'>LAP</span>";
+  for(var i=0;i<R.laps;i++) out += "<i></i>";
+  box.innerHTML = out;
+}
+function shout(txt, secs){
+  var c = el('callout');
+  c.textContent = txt;
+  c.classList.remove('on'); void c.offsetWidth; c.classList.add('on');
+  R.callT = secs;
+}
+
+// ── simulation ─────────────────────────────────────────────
+function advance(dt){
+  if(R.stage !== 'green') return;
+  var t = tune();
+  var gas   = held['arrowup']   || held['w'] || thumb.gas;
+  var brake = held['arrowdown'] || held['s'] || thumb.brake;
+  var lft   = held['arrowleft'] || held['a'] || thumb.left;
+  var rgt   = held['arrowright']|| held['d'] || thumb.right;
+  var nosK  = held[' '] || held['shift'] || thumb.nos;
+
+  ME.burning = !!(nosK && ME.nos > 1 && ME.v > 30);
+  ME.nos = ME.burning ? lim(ME.nos - t.burn*dt, 0, t.tank) : lim(ME.nos + t.trickle*dt, 0, t.tank);
+
+  var dx = ME.x-OV.cx, dy = ME.y-OV.cy;
+  var outer = (dx*dx)/Math.pow(OV.rx+OV.w,2) + (dy*dy)/Math.pow(OV.ry+OV.w,2);
+  var inner = (dx*dx)/Math.pow(OV.rx-OV.w,2) + (dy*dy)/Math.pow(OV.ry-OV.w,2);
+  var dirt = outer > 1 || inner < 1;
+  var ceiling = t.top * (dirt ? 0.58 : 1) * (ME.burning ? t.kickMul : 1);
+
+  if(gas) ME.v += t.shove*(ME.burning?1.5:1)*dt;
+  else if(brake) ME.v -= 440*dt;
+  else ME.v -= ME.v*1.05*dt;
+  if(dirt) ME.v -= ME.v*1.6*dt;
+  ME.v = lim(ME.v, -95, ceiling);
+
+  var stick = Math.min(1, Math.abs(ME.v)/55);
+  var fade = 1 - 0.32*Math.min(1, Math.abs(ME.v)/t.top);
+  var rate = t.bite * stick * fade * (dirt ? 0.72 : 1);
+  var way = ME.v < 0 ? -1 : 1, steer = 0;
+  if(lft){ ME.a -= rate*dt*way; steer = -1; }
+  if(rgt){ ME.a += rate*dt*way; steer = 1; }
+
+  ME.x += Math.cos(ME.a)*ME.v*dt;
+  ME.y += Math.sin(ME.a)*ME.v*dt;
+
+  R.wear += dt * (dirt ? 3.4 : 0.85) * (ME.burning ? 1.5 : 1);
+  if(dirt){
+    ME.offT += dt;
+    if(Math.random() < 0.7) spit(ME.x, ME.y, 'rgba(190,150,70,', 1, 40, 5, .6);
+  } else ME.offT = 0;
+
+  if(steer && Math.abs(ME.v) > t.top*0.55){
+    var bx = ME.x - Math.cos(ME.a)*13, by = ME.y - Math.sin(ME.a)*13;
+    var px = -Math.sin(ME.a)*7, py = Math.cos(ME.a)*7;
+    MARKS.push({ x:bx+px, y:by+py, a:ME.a, life:3 });
+    MARKS.push({ x:bx-px, y:by-py, a:ME.a, life:3 });
+    if(MARKS.length > 440) MARKS.splice(0, 70);
+  }
+  if(ME.burning) spit(ME.x - Math.cos(ME.a)*20, ME.y - Math.sin(ME.a)*20, 'rgba(255,170,40,', 2, 30, 6, .35);
+
+  var now = performance.now();
+  if(outer > 1.30 || inner < 0.70){
+    var back = onOval(angleAt(ME.x, ME.y), 0);
+    ME.x += (back.x-ME.x)*0.28; ME.y += (back.y-ME.y)*0.28;
+    ME.v *= 0.45;
+    if(now - R.hitAt > 380){
+      R.hitAt = now; R.kick = 12; R.hurt += 1.6;
+      spit(ME.x, ME.y, 'rgba(255,220,120,', 10, 120, 4, .4);
+      clunk(.26);
+    }
+  }
+
+  var ang = angleAt(ME.x, ME.y), step = ang - ME.was;
+  if(step > Math.PI) step -= TAU; else if(step < -Math.PI) step += TAU;
+  ME.sum += step; ME.was = ang;
+  R.wrongT = step < -0.0015 ? Math.min(1.4, R.wrongT + dt) : Math.max(0, R.wrongT - dt*2);
+
+  if(ME.sum >= ME.gap + (R.done+1)*TAU){
+    R.done++;
+    var split = (now - R.lapAt)/1000;
+    R.lapAt = now; R.splits.push(split);
+    var pb = !G.bestLap || split < G.bestLap;
+    if(pb) G.bestLap = split;
+    R.glow = 0.4;
+    ME.nos = lim(ME.nos + 22, 0, t.tank);
+    tone(pb ? 940 : 760, .16, 'triangle', .06);
+    shout(pb ? 'NEW BEST · ' + t2(split) : 'LAP ' + Math.min(R.done+1, R.laps), 1.2);
+    var bulbs = el('lapLights').getElementsByTagName('i');
+    if(bulbs[R.done-1]) bulbs[R.done-1].classList.add('lit');
+    if(R.done >= R.laps){ callIt(false); return; }
+  }
+
+  var mine = ME.sum - ME.gap;
+  FOES.forEach(function(f){
+    if(f.home) return;
+    var his = f.sum - f.gap, want = f.pace;
+    if(mine > his + 130) want *= 1.07;
+    else if(his > mine + 170) want *= 0.93;
+    f.v += (want - f.v) * Math.min(1, dt*2.2);
+    var d = (f.v*dt)/arcRate(f.t);
+    f.t += d; f.sum += d;
+    f.off = f.lane + Math.sin(f.t*2.4 + f.wob)*12;
+    if(f.sum - f.gap >= R.laps*TAU){
+      f.home = true; R.foesHome++;
+      f.at = (performance.now() - R.goAt)/1000;
+    }
+    var p = onOval(f.t, f.off);
+    f.x = p.x; f.y = p.y; f.a = heading(f.t);
+    var ox = f.x-ME.x, oy = f.y-ME.y, gap = Math.hypot(ox,oy);
+    if(gap < 30 && gap > 0.01){
+      var nudge = (30-gap)/2;
+      ME.x -= ox/gap*nudge; ME.y -= oy/gap*nudge;
+      ME.v *= 0.88; f.v *= 0.94; R.hurt += 0.22;
+      if(now - R.hitAt > 260){ R.hitAt = now; R.kick = 6; spit(ME.x,ME.y,'rgba(255,240,160,',5,70,3,.3); clunk(.12); }
+    }
+  });
+
+  if(R.kick > 0) R.kick = Math.max(0, R.kick - dt*26);
+  if(R.glow > 0) R.glow = Math.max(0, R.glow - dt);
+  if(R.callT > 0){ R.callT -= dt; if(R.callT <= 0) el('callout').classList.remove('on'); }
+
+  for(var i=DUST.length-1;i>=0;i--){
+    var q = DUST[i];
+    q.x += q.vx*dt; q.y += q.vy*dt; q.vx *= 0.94; q.vy *= 0.94; q.life -= dt;
+    if(q.life <= 0) DUST.splice(i,1);
+  }
+  for(var j=MARKS.length-1;j>=0;j--){ MARKS[j].life -= dt*0.35; if(MARKS[j].life <= 0) MARKS.splice(j,1); }
+
+  engRev(Math.abs(ME.v), t.top);
+}
+function spit(x,y,col,n,spread,size,life){
+  for(var i=0;i<n;i++){
+    var a = Math.random()*TAU, s = Math.random()*spread;
+    DUST.push({ x:x, y:y, vx:Math.cos(a)*s, vy:Math.sin(a)*s,
+      life:life, max:life, col:col, size:size*(0.6+Math.random()*0.8) });
+  }
+}
+
+// ── drawing ────────────────────────────────────────────────
+function box(c,x,y,w,h,r){
+  c.beginPath(); c.moveTo(x+r,y);
+  c.arcTo(x+w,y,x+w,y+h,r); c.arcTo(x+w,y+h,x,y+h,r);
+  c.arcTo(x,y+h,x,y,r); c.arcTo(x,y,x+w,y,r); c.closePath();
+}
+function ring(rx,ry){ X.beginPath(); X.ellipse(OV.cx,OV.cy,rx,ry,0,0,TAU); }
+
+function drawGround(){
+  X.fillStyle = '#7d5f18'; X.fillRect(0,0,W,H);
+  SET.grit.forEach(function(g){ X.fillStyle = g.c; X.fillRect(g.x,g.y,g.s,g.s); });
+
+  X.fillStyle = '#8f6d1c'; ring(OV.rx+OV.w+30, OV.ry+OV.w+30); X.fill();
+  X.fillStyle = '#2c2722'; ring(OV.rx+OV.w, OV.ry+OV.w); X.fill();
+  X.fillStyle = '#8f6d1c'; ring(OV.rx-OV.w, OV.ry-OV.w); X.fill();
+  X.fillStyle = '#6d5314'; ring(OV.rx-OV.w-18, OV.ry-OV.w-18); X.fill();
+
+  for(var i=0;i<60;i++){
+    var a0 = i*TAU/60, a1 = a0 + TAU/60;
+    X.strokeStyle = (i%2) ? '#d63b21' : '#efe3c4'; X.lineWidth = 9;
+    X.beginPath(); X.ellipse(OV.cx,OV.cy,OV.rx+OV.w-5,OV.ry+OV.w-5,0,a0,a1); X.stroke();
+    X.beginPath(); X.ellipse(OV.cx,OV.cy,OV.rx-OV.w+5,OV.ry-OV.w+5,0,a0,a1); X.stroke();
+  }
+  X.setLineDash([26,32]); X.strokeStyle = 'rgba(245,235,205,.15)'; X.lineWidth = 3;
+  ring(OV.rx, OV.ry); X.stroke(); X.setLineDash([]);
+
+  // hay bales round the outside
+  SET.bales.forEach(function(b){
+    X.save(); X.translate(b.p.x, b.p.y); X.rotate(heading(b.t));
+    X.fillStyle = '#c9a24e'; box(X,-13,-7,26,14,3); X.fill();
+    X.strokeStyle = 'rgba(90,60,14,.7)'; X.lineWidth = 1.5;
+    X.beginPath(); X.moveTo(-4,-7); X.lineTo(-4,7); X.moveTo(5,-7); X.lineTo(5,7); X.stroke();
+    X.restore();
+  });
+  X.fillStyle = 'rgba(20,14,6,.45)';
+  SET.poles.forEach(function(p){ X.beginPath(); X.arc(p.x,p.y,9,0,TAU); X.fill(); });
+  SET.cacti.forEach(function(p){
+    X.fillStyle = '#2f6b23';
+    X.fillRect(p.x-4,p.y-18,8,36); X.fillRect(p.x-14,p.y-6,10,7); X.fillRect(p.x-14,p.y-14,7,12);
+    X.fillRect(p.x+5,p.y-2,10,7); X.fillRect(p.x+8,p.y-11,7,14);
+  });
+
+  var y0 = OV.cy-(OV.ry+OV.w), y1 = OV.cy-(OV.ry-OV.w), rows = Math.round((y1-y0)/13);
+  for(var r=0;r<rows;r++) for(var k=0;k<2;k++){
+    X.fillStyle = ((r+k)%2) ? '#f0e6cc' : '#1d1c19';
+    X.fillRect(OV.cx-13+k*13, y0+r*13, 13, 13);
+  }
+}
+function drawCar(x,y,a,body,trim,mine,hot){
+  X.save(); X.translate(x,y); X.rotate(a);
+  X.fillStyle = 'rgba(0,0,0,.42)'; box(X,-17,-9,36,22,7); X.fill();
+  if(hot){
+    X.fillStyle = 'rgba(255,150,30,.78)';
+    X.beginPath(); X.moveTo(-19,-5); X.lineTo(-19,5); X.lineTo(-19-14-Math.random()*10,0); X.closePath(); X.fill();
+  }
+  X.fillStyle = '#141414';
+  X.fillRect(-13,-14,10,7); X.fillRect(-13,7,10,7);
+  X.fillRect(7,-14,10,7);   X.fillRect(7,7,10,7);
+  var g = X.createLinearGradient(-18,0,20,0);
+  g.addColorStop(0,trim); g.addColorStop(.22,body); g.addColorStop(1,body);
+  X.fillStyle = g; box(X,-18,-11,38,22,8); X.fill();
+  X.fillStyle = trim; box(X,9,-11,11,22,7); X.fill();
+  X.fillRect(-21,-12,5,24);
+  X.fillStyle = 'rgba(22,32,38,.9)'; box(X,-4,-8,10,16,3); X.fill();
+  if(mine){
+    X.fillStyle = '#fff';
+    X.beginPath(); X.ellipse(4,-5,4.2,3.4,0,0,TAU); X.fill();
+    X.beginPath(); X.ellipse(4,5,4.2,3.4,0,0,TAU); X.fill();
+    X.fillStyle = '#2e7d32';
+    X.beginPath(); X.arc(5.4,-5,2.2,0,TAU); X.fill();
+    X.beginPath(); X.arc(5.4,5,2.2,0,TAU); X.fill();
+  }
+  X.restore();
+}
+function paintTrack(){
+  X.setTransform(1,0,0,1,0,0);
+  if(R.kick > 0) X.translate((Math.random()-.5)*R.kick, (Math.random()-.5)*R.kick);
+  drawGround();
+  MARKS.forEach(function(s){
+    X.strokeStyle = 'rgba(24,16,8,' + Math.min(.5, s.life*.2) + ')'; X.lineWidth = 4;
+    X.beginPath();
+    X.moveTo(s.x - Math.cos(s.a)*5, s.y - Math.sin(s.a)*5);
+    X.lineTo(s.x + Math.cos(s.a)*5, s.y + Math.sin(s.a)*5);
+    X.stroke();
+  });
+  FOES.forEach(function(f){ if(f.x != null) drawCar(f.x,f.y,f.a,f.body,f.trim,false,false); });
+  drawCar(ME.x, ME.y, ME.a, '#f2c300', '#c81e1e', true, ME.burning);
+  DUST.forEach(function(q){
+    X.fillStyle = q.col + (q.life/q.max*.8) + ')';
+    X.beginPath(); X.arc(q.x,q.y,q.size,0,TAU); X.fill();
+  });
+  if(R.glow > 0){ X.fillStyle = 'rgba(244,234,210,' + (R.glow*.45) + ')'; X.fillRect(0,0,W,H); }
+  X.setTransform(1,0,0,1,0,0);
+}
+function paintRadar(){
+  RX.clearRect(0,0,180,130);
+  RX.strokeStyle = 'rgba(127,214,207,.55)'; RX.lineWidth = 9;
+  RX.beginPath(); RX.ellipse(90,65,62,40,0,0,TAU); RX.stroke();
+  RX.strokeStyle = 'rgba(127,214,207,.9)'; RX.lineWidth = 2;
+  RX.beginPath(); RX.moveTo(90,17); RX.lineTo(90,33); RX.stroke();
+  var put = function(t,off,col,size){
+    var c = Math.cos(t), s = Math.sin(t);
+    RX.fillStyle = col;
+    RX.beginPath(); RX.arc(90 + c*(62+off*0.1), 65 + s*(40+off*0.1), size, 0, TAU); RX.fill();
+  };
+  FOES.forEach(function(f){ put(f.t, f.off, f.body, 3); });
+  put(angleAt(ME.x,ME.y), 0, '#f5c400', 4.4);
+}
+function paintHud(){
+  var t = tune();
+  el('sLap').textContent = Math.min(R.done+1, R.laps) + '/' + R.laps;
+  var mine = ME.sum - ME.gap, place = 1;
+  FOES.forEach(function(f){ if((f.sum-f.gap) > mine) place++; });
+  el('sPos').textContent = place + '/' + (FOES.length+1);
+  var lap = R.stage === 'green' ? (performance.now()-R.lapAt)/1000 : 0;
+  el('sNow').textContent = lap.toFixed(2);
+  var bst = el('sBest');
+  bst.textContent = G.bestLap ? t2(G.bestLap) : '--';
+  bst.className = 'v' + (R.splits.length && G.bestLap === Math.min.apply(null,R.splits) ? ' hot' : '');
+
+  var rows = [{ nm:'YOU', d:mine, me:true }].concat(FOES.map(function(f){ return { nm:f.nm, d:f.sum-f.gap, me:false }; }));
+  rows.sort(function(a,b){ return b.d-a.d; });
+  el('towerRows').innerHTML = rows.map(function(r,i){
+    return "<div class='row" + (r.me?' me':'') + "'><span class='p'>P" + (i+1) + "</span><span>" + r.nm + "</span></div>";
+  }).join('');
+
+  var mph = Math.round(Math.abs(ME.v)*0.62);
+  el('speedoRd').textContent = mph;
+  el('ndl-speedo').style.transform = 'rotate(' + (-120 + lim(mph/170,0,1.05)*240) + 'deg)';
+
+  var pct = ME.nos/t.tank*100;
+  var f = el('nosFill');
+  f.style.height = pct + '%';
+  f.classList.toggle('max', pct > 97);
+
+  lamp('wDmg', R.hurt > 14, true);
+  lamp('wTire', R.wear > G.grip*0.6);
+  lamp('wWrong', R.wrongT > 0.6, true);
+}
+function spin(ts){
+  if(!R.live) return;
+  if(!R.prev) R.prev = ts;
+  var dt = Math.min((ts - R.prev)/1000, 0.05);
+  R.prev = ts;
+  if(R.held) dt = 0;
+  advance(dt);
+  if(!R.live) return;
+  paintTrack();
+  paintRadar();
+  paintHud();
+  R.frame = requestAnimationFrame(spin);
+}
+function holdRace(){
+  if(!R.live) return;
+  R.held = !R.held;
+  if(R.held){
+    engStop();
+    sheet('PAUSED', R.meet.name, [row('lap', Math.min(R.done+1,R.laps) + ' of ' + R.laps)], [
+      { txt:'RESUME', go:holdRace },
+      { txt:'PIT IN', alt:true, go:function(){ R.held = false; callIt(true); } }
+    ], 'HELD');
+  } else {
+    el('over').classList.remove('on');
+    engStart();
+  }
+}
+function sheet(ttl, sub, rows, btns, stamp){
+  el('ovTtl').textContent = ttl;
+  el('ovSub').textContent = sub || '';
+  el('ovRows').innerHTML = rows.join('');
+  el('ovStamp').textContent = stamp || 'ROUTE 7';
+  var host = el('ovBtns'); host.innerHTML = '';
+  btns.forEach(function(b){
+    var n = document.createElement('button');
+    n.textContent = b.txt;
+    if(b.alt) n.className = 'alt';
+    n.addEventListener('click', b.go);
+    host.appendChild(n);
+  });
+  el('over').classList.add('on');
+}
+
+// ── flag ───────────────────────────────────────────────────
+function callIt(bailed){
+  R.live = false;
+  cancelAnimationFrame(R.frame);
+  engStop();
+  el('callout').classList.remove('on');
+  G.grip = lim(G.grip - R.wear, 0, 100);
+  G.engine = lim(G.engine - R.hurt, 0, 100);
+
+  var rows, ttl, sub, stamp;
+  if(bailed){
+    G.spirit = lim(G.spirit-10,0,100);
+    ttl = 'PITTED IN'; sub = R.meet.name; stamp = 'RETIRED';
+    rows = [ row('laps completed', R.done + ' of ' + R.laps),
+             row('tire wear', '-' + Math.round(R.wear)),
+             row('damage', '-' + Math.round(R.hurt)),
+             row('spirit', '-10') ];
+    chief('pulled her in. no shame, no purse either.');
+  } else {
+    var place = 1 + R.foesHome;
+    var total = (performance.now() - R.goAt)/1000;
+    var cut = place===1 ? 1 : place===2 ? .6 : place===3 ? .4 : .25;
+    var purse = Math.round(R.meet.purse*cut + R.laps*6);
+    var xp = Math.round(46*cut + R.laps*4);
+    G.bolts += purse; G.xp += xp;
+    G.spirit = lim(G.spirit + (place===1?30:place<=3?18:8), 0, 100);
+    if(place === 1) G.wins++;
+    if(place <= 3) G.podiums++;
+    if(!G.bestRace || total < G.bestRace) G.bestRace = total;
+    var best = R.splits.length ? Math.min.apply(null, R.splits) : null;
+    ttl = place===1 ? 'CHEQUERED FLAG' : 'P' + place + ' FINISH';
+    sub = R.meet.name;
+    stamp = place===1 ? 'WINNER' : 'CLASSIFIED';
+    rows = [ row('finished', 'P' + place + ' of ' + (FOES.length+1)),
+             row('race time', total.toFixed(2) + 's'),
+             row('best lap', best ? t2(best)+'s' : '--'),
+             row('purse', purse + ' bolts'),
+             row('experience', '+' + xp + ' xp'),
+             row('tire wear', '-' + Math.round(R.wear)),
+             row('damage', '-' + Math.round(R.hurt)) ];
+    var opened = CARD.filter(function(c){ return c.need > 0 && G.wins === c.need; })[0];
+    if(opened) rows.push(row('unlocked', opened.name.toLowerCase()));
+    if(place === 1){ tone(880,.12,'square',.07); setTimeout(function(){ tone(1170,.24,'square',.07); }, 150); }
+    else clunk(.15);
+    chief(place===1 ? 'ka-chow! that\'s how it\'s done, kid.' : 'p' + place + '. we\'ll take it and learn from it.');
+    jolt(place===1 ? 'hop' : 'rattle');
+  }
+  sheet(ttl, sub, rows, [
+    { txt:'RUN IT AGAIN', go:function(){ var i = CARD.indexOf(R.meet); leaveTrack(); lineUp(i < 0 ? 0 : i); } },
+    { txt:'BACK TO PITS', alt:true, go:leaveTrack }
+  ], stamp);
+  refresh(); store();
+  if(G.engine <= 0) setTimeout(blowUp, 400);
+}
+function leaveTrack(){
+  R.live = false;
+  cancelAnimationFrame(R.frame);
+  engStop();
+  el('track').classList.remove('on');
+  el('over').classList.remove('on');
+  el('pads').classList.remove('on');
+  document.body.classList.remove('in-race');
+  for(var k in held) held[k] = false;
+  for(var j in thumb) thumb[j] = false;
+  if(running) startClock();
+  refresh();
+}
+
+// ── the big speedo in the race HUD ─────────────────────────
+function buildSpeedo(){
+  var ticks = '', i;
+  for(i=0;i<=12;i++){
+    var a = (-210 + i*20) * Math.PI/180;
+    var r1 = i%3===0 ? 27 : 32;
+    ticks += "<line x1='" + (50+Math.cos(a)*r1).toFixed(1) + "' y1='" + (50+Math.sin(a)*r1).toFixed(1) +
+             "' x2='" + (50+Math.cos(a)*38).toFixed(1) + "' y2='" + (50+Math.sin(a)*38).toFixed(1) +
+             "' stroke='" + (i>=10 ? '#c8261e' : '#cbbfa2') + "' stroke-width='" + (i%3===0?2.6:1.3) + "'/>";
+  }
+  el('speedoSvg').innerHTML =
+    "<circle cx='50' cy='50' r='45' fill='rgba(10,8,5,.9)' stroke='#6d6353' stroke-width='4'/>" +
+    "<path d='M17 74 A40 40 0 0 1 12 40' fill='none' stroke='#f0a416' stroke-width='3' opacity='.5'/>" +
+    "<path d='M76 24 A40 40 0 0 1 87 46' fill='none' stroke='#c8261e' stroke-width='3.5'/>" +
+    ticks +
+    "<text x='50' y='40' text-anchor='middle' font-family='Bungee,sans-serif' font-size='6' fill='#8b7d5f' letter-spacing='1'>MPH</text>" +
+    "<g class='needle' id='ndl-speedo' style='transition:transform .08s linear'>" +
+    "<polygon points='50,50 46.5,45 50,13 53.5,45' fill='#f5c400'/></g>" +
+    "<circle cx='50' cy='50' r='6' fill='#4b453c' stroke='#0a0806' stroke-width='2'/>";
+}
+
+// ── input ──────────────────────────────────────────────────
+var DRIVE = ['arrowup','arrowdown','arrowleft','arrowright',' '];
+window.addEventListener('keydown', function(e){
+  var k = e.key.toLowerCase();
+  held[k] = true;
+  if(R.live && DRIVE.indexOf(k) !== -1) e.preventDefault();
+  if((k === 'p' || k === 'escape') && R.live) holdRace();
+  if(!R.live && running && !napping){
+    var map = { '1':'fuel', '2':'rest', '3':'fix', '4':'wax', '5':'tire', '6':'work' };
+    if(map[k]) pit(map[k]);
+  }
+});
+window.addEventListener('keyup', function(e){ held[e.key.toLowerCase()] = false; });
+window.addEventListener('blur', function(){
+  for(var k in held) held[k] = false;
+  for(var j in thumb) thumb[j] = false;
+  if(R.live && !R.held && R.stage === 'green') holdRace();
+});
+Array.prototype.forEach.call(document.querySelectorAll('.pad'), function(p){
+  var k = p.getAttribute('data-k');
+  var down = function(e){ e.preventDefault(); thumb[k] = true; p.classList.add('down'); };
+  var up = function(){ thumb[k] = false; p.classList.remove('down'); };
+  p.addEventListener('pointerdown', down);
+  p.addEventListener('pointerup', up);
+  p.addEventListener('pointerleave', up);
+  p.addEventListener('pointercancel', up);
+  p.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+});
+
+// ── wiring ─────────────────────────────────────────────────
+el('aFuel').addEventListener('click', function(){ pit('fuel'); });
+el('aRest').addEventListener('click', function(){ pit('rest'); });
+el('aFix').addEventListener('click',  function(){ pit('fix'); });
+el('aWax').addEventListener('click',  function(){ pit('wax'); });
+el('aTire').addEventListener('click', function(){ pit('tire'); });
+el('aWork').addEventListener('click', function(){ pit('work'); });
+el('aRace').addEventListener('click', openCard);
+el('pickBack').addEventListener('click', function(){ el('mdPick').hidden = true; });
+el('bRebuild').addEventListener('click', rebuild);
+el('bPause').addEventListener('click', holdRace);
+el('bPitIn').addEventListener('click', function(){ if(R.live) callIt(true); else leaveTrack(); });
+el('keysBack').addEventListener('click', function(){ el('mdKeys').hidden = true; });
+el('mKeys').addEventListener('click', function(){ el('mdKeys').hidden = false; });
+
+el('bSound').addEventListener('click', function(){
+  G.mute = !G.mute;
+  if(G.mute) engStop(); else if(R.live && !R.held) engStart();
+  refresh(); store();
+});
+el('bQuit').addEventListener('click', function(){
+  store(); clearInterval(heartbeat); running = false;
+  el('title').hidden = false;
+  primeTitle();
+});
+Array.prototype.forEach.call(document.querySelectorAll('.tabs button'), function(b){
+  b.addEventListener('click', function(){
+    Array.prototype.forEach.call(document.querySelectorAll('.tabs button'), function(x){ x.classList.remove('on'); });
+    Array.prototype.forEach.call(document.querySelectorAll('.sheet'), function(x){ x.classList.remove('on'); });
+    b.classList.add('on');
+    el('sheet-' + b.getAttribute('data-sheet')).classList.add('on');
+  });
+});
+el('car').addEventListener('click', function(){ if(!R.live){ chatter(mood()); jolt('hop'); } });
+
+function takeTheWheel(wipe){
+  bench();
+  if(wipe){
+    try{ localStorage.removeItem(KEY); }catch(e){}
+    G = fresh();
+  } else if(hasSave){
+    var away = Math.min(35, (Date.now() - G.stamp)/60000);
+    if(away > 1.5){
+      G.fuel = lim(G.fuel - away*0.75, 0, 100);
+      G.energy = lim(G.energy - away*0.55, 0, 100);
+      G.spirit = lim(G.spirit - away*0.45, 0, 100);
+      chief('you were gone ' + Math.round(away) + ' minutes. she noticed.');
+    }
+  }
+  if(G.engine <= 0) G.engine = 12;
+  running = true; napping = false;
+  el('title').hidden = true;
+  startClock();
+  refresh(); store();
+  if(absent.length){
+    chief('missing photos: ' + absent.join(', ') + ' — drop the jpgs on the window.');
+  }
+}
+el('mNew').addEventListener('click', function(){
+  if(hasSave && !confirm('Scrap the current logbook and start day 1?')) return;
+  hasSave = false;
+  takeTheWheel(true);
+});
+el('mContinue').addEventListener('click', function(){ if(hasSave) takeTheWheel(false); });
+window.addEventListener('beforeunload', store);
+setInterval(function(){
+  if(running && !R.live && !napping && Math.random() < 0.4) chatter(mood());
+}, 15000);
+
+function primeTitle(){
+  el('titleCar').src = PIC.happy || STANDIN;
+  var c = el('mContinue');
+  c.disabled = !hasSave;
+  el('mContinueInfo').textContent = hasSave
+    ? ('day ' + G.day + ' · ' + G.wins + ' wins · ' + Math.floor(G.bolts) + ' bolts')
+    : 'no logbook found';
+  el('titleTip').textContent = absent.length
+    ? ('art missing: ' + absent.join(', ') + ' — drop the jpgs onto this window')
+    : 'arrows or WASD to drive · space for nitro · P pauses';
+}
+
+// ── boot ───────────────────────────────────────────────────
+buildDials();
+buildSpeedo();
+hasSave = recall();
+gatherPics().then(function(){
+  el('deadCar').src = PIC.sick || PIC.happy || STANDIN;
+  showCar('happy');
+  primeTitle();
+  refresh();
+});
+</script>
+</body>
+</html>
