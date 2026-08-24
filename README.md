@@ -4,7 +4,7 @@ I am Shadxen.fx, a part-time video editor and game developer. This is a small pr
 
 ![Virtual Pet Banner](./img/Mainmenu.png)
 
---
+---
 
 ## Notes for Stardance Reviewers
 
