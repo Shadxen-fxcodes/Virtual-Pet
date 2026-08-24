@@ -1,6 +1,6 @@
 # Thunder McKing 🏎️
 
-I am Shadxen.fx, a part-time video editor and game developer. This is a small project that I made to start of StarDance. I got awfully busy with university application prep so had to postpone the designing and everything. To begin with, this is heavily inspired by Tamagotchi children mini pet toy and the Disney Pixar Cars character, #95 Lightning McQueen. Initially, I tried to do this using Python as the elected programming language, but if you take a quick look at my first few dev logs, it was frankly a bit mid, so I switched to JavaScript. I hope you, as the consumer have a little bit of fun trying out this little project that I made. It's meant to be a bit of a time-pass kind of game, not your average AAA game unfortunately :(, but here we are! Happy Gaming 🎮!!
+I am Shadxen.fx, a part-time video editor and game developer. This is a small project that I made to start of StarDance. I got awfully busy with university application prep so had to postpone the designing and everything. To begin with, this is heavily inspired by Tamagotchi children mini pet toy and the Disney Pixar Cars character, #95 Lightning McQueen. Initially, I tried to do this using Python as the elected programming language, but if you take a quick look at my first few dev logs, it was frankly a bit mid, so I switched to JavaScript. I hope you, as the consumer have a little bit of fun trying out this little project that I made. It's meant to be a bit of a time-pass kind of game, not your average AAA game unfortunately :( , but here we are! Happy Gaming 🎮!!
 
 ![Virtual Pet Banner](./img/Mainmenu.png)
 
@@ -27,7 +27,7 @@ I am Shadxen.fx, a part-time video editor and game developer. This is a small pr
 
 # Usability & Polish
 * This game should play instantly in Chrome, Safari, Edge, or Firefox with no apparent problem.
-* Mobile UI uses a simple thumb pad placement so your hands don't cover the main track view (it isn't fully tested, but as far as I know it should work OK).
+* The mobile UI uses a simple thumb pad placement so your hands don't cover the main track view (it isn't fully tested, but as far as I know it should work OK).
 * After repeated feedback from the Shipwrights, I have tried to clean up the CSS layout to remove any AI generated sections and that plain, soulless AI design language, while also keeping the frame rate steady on lower-end hardware.
 
 # Storytelling & Devlogs
@@ -55,8 +55,8 @@ I am Shadxen.fx, a part-time video editor and game developer. This is a small pr
 ---
 
 # Recent Updates
-* CSS Refactor: Updated menu layouts and improved overall UI responsiveness on mobile screens.
-* Code Polish: Cleaned up the main game loop and rewrote initial draft code to ensure the entire script is hand-crafted and lightweight.
+* CSS Refactor: There are some updated menu layouts and improved overall UI responsiveness on mobile screens.
+* Code Polish: I have also cleaned up the main game loop and rewrote initial draft code to ensure the entire script is hand-written and lightweight.
 
 ---
 
