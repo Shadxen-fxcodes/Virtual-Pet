@@ -6,9 +6,9 @@ I am Shadxen.fx, a part-time video editor and game developer. This is a small pr
 
 ---
 
-## Notes for Stardance Reviewers
+# Notes for Stardance Reviewers
 
-## Originality
+# Originality
 * I wanted to make a dynamic racer with an Tamagotchi style game instead of a standard text or puzzle game to have a bit of variety to the selection of games.
 * I built a real-time pit management mechanic which lets you actually interact and have to balance your speed against car wear and tear.
 * I also created custom touch controls so it is more accessible on different devices so that it works cleanly on mobile devices without needing a keyboard.
@@ -16,56 +16,56 @@ I am Shadxen.fx, a part-time video editor and game developer. This is a small pr
 
 ![Gameplay Preview](./img/garage.png)
 
-## Technical Details
-* **Vanilla Stack:** The game was built entirely with plain HTML, CSS, and pure JavaScript inside `index.html` without heavy third-party libraries.
-* **Vehicle State Loop:** I made it so that it tracks speed, tire wear, and engine heat dynamically. (in the mini-game) overusing nitro or taking sharp turns degrades your vehicle stats.
-* **Dual Input System:** Listens for active input type and will toggle between keyboard bindings and on-screen touch thumb pads.
-* **Mid-Race Pit Actions:** Mapped keys `1` through `6` to repair specific components on the fly without pausing the canvas loop.
-* **Local Storage:** Saves garage unlocks and high scores directly to the browser. I did this so that the game has that 'save-game' feature that aren't always there in some browser games, so I wanted to make sure people can continue on from where they left off.
+# Technical Details
+* Vanilla Stack: The game was built entirely with plain HTML, CSS, and pure JavaScript inside `index.html` without heavy third-party libraries.
+* Vehicle State Loop: I made it so that it tracks speed, tire wear, and engine heat dynamically. (in the mini-game) overusing nitro or taking sharp turns degrades your vehicle stats.
+* Dual Input System: Listens for active input type and will toggle between keyboard bindings and on-screen touch thumb pads.
+* Mid-Race Pit Actions: Mapped keys `1` through `6` to repair specific components on the fly without pausing the canvas loop.
+* Local Storage: Saves garage unlocks and high scores directly to the browser. I did this so that the game has that 'save-game' feature that aren't always there in some browser games, so I wanted to make sure people can continue on from where they left off.
 
 ![Gameplay Preview](./img/mods.png)
 
-## Usability & Polish
+# Usability & Polish
 * This game should play instantly in Chrome, Safari, Edge, or Firefox with no apparent problem.
 * Mobile UI uses a simple thumb pad placement so your hands don't cover the main track view (it isn't fully tested, but as far as I know it should work OK).
 * After repeated feedback from the Shipwrights, I have tried to clean up the CSS layout to remove any AI generated sections and that plain, soulless AI design language, while also keeping the frame rate steady on lower-end hardware.
 
-## Storytelling & Devlogs
+# Storytelling & Devlogs
 * I tried to document the build process on Stardance itself, covering some bug fixes and feature iteration that I may have made on the project. Check out the dev logs to see how the project came together.
 
 ![Gameplay Preview](./img/logbook.png)
 
 ---
 
-## Controls
+# Controls
 
 ## Desktop
-* **Steer:** `A` / `D` or `←` `→`
-* **Throttle:** `W` or `↑`
-* **Brake / Reverse:** `S` or `↓`
-* **Nitro:** `SPACE`
-* **Pit Actions:** `1` – `6`
-* **Pause:** `P` or `ESC`
+* Steer: `A` / `D` or `←` `→`
+* Throttle: `W` or `↑`
+* Brake / Reverse: `S` or `↓`
+* Nitro: `SPACE`
+* Pit Actions: `1` – `6`
+* Pause: `P` or `ESC`
 
-## Mobile
-* **Steering:** Left on-screen thumb pad
-* **Throttle / Brake:** Right on-screen thumb pad
-* **Nitro & Pit Actions:** On-screen buttons
-
----
-
-## Recent Updates
-* **CSS Refactor:** Updated menu layouts and improved overall UI responsiveness on mobile screens.
-* **Code Polish:** Cleaned up the main game loop and rewrote initial draft code to ensure the entire script is hand-crafted and lightweight.
+# Mobile
+* Steering: Left on-screen thumb pad
+* Throttle / Brake: Right on-screen thumb pad
+* Nitro & Pit Actions: On-screen buttons
 
 ---
 
-## Known Issues
+# Recent Updates
+* CSS Refactor: Updated menu layouts and improved overall UI responsiveness on mobile screens.
+* Code Polish: Cleaned up the main game loop and rewrote initial draft code to ensure the entire script is hand-crafted and lightweight.
+
+---
+
+# Known Issues
 * The mobile edition isn't fully tested as of yet as it does take some time to fully wring out the game mechanics.
 * Please do note this game is made entirely on my computer so obviously it will be a more PC focused design language and UI that may not be fully suited to all mobile devices.
 * It is my exam season so I wasn't able to put 100% effort into this but please do try it out.
 
 ---
 
-## About
+# About
 A browser-based pet racing game built with HTML, CSS, and Vanilla JavaScript.
